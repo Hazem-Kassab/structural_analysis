@@ -1,3 +1,7 @@
 # Ignore files related to API keys
 venv
 /__pycache__
+MANIFEST.in
+/build
+/dist
+/*.egg-info

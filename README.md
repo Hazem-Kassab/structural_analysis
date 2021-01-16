@@ -87,11 +87,9 @@ Visualization.show_deformed_shape(structure, 10, 200)
 
 Visualization.execute_qt()
 
-
-
 ```
 
-##Under Development
+## Under Development
 The following enhancements will be included soon:
  * Releases at element end nodes.
  * Non-nodal loading.
