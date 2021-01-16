@@ -21,7 +21,7 @@ pip install pyqtgraph==0.11.1
 ## Usage
 
 ```python
-from StructuralAnalysis import Node, Structure, Section, Material, Solver, Plot
+from StructuralAnalysis import Node, Structure, Section, Material, Solver, Visualization
 from StructuralAnalysis.FrameElements import *
 
 # General considerations:
@@ -80,12 +80,12 @@ structure = Structure([element_1, element_2, element_3])
 Solver.analyze_first_order_elastic(structure)
 
 #display structure (x is blue, y is yellow, z is green)
-Plot.plot_structure(structure)
+Visualization.show_structure(structure)
 
-#display deformed structure <plot_deformed_shape(structure, element_signments, scale)> (displayed in red)
-Plot.plot_deformed_shape(structure, 10, 200)
+#display deformed structure <show_deformed_shape(structure, element_signments, scale)> (displayed in red)
+Visualization.show_deformed_shape(structure, 10, 200)
 
-Plot.execute_qt()
+Visualization.execute_qt()
 
 
 

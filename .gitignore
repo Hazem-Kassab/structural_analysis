@@ -1,2 +1,3 @@
 # Ignore files related to API keys
 venv
+/__pycache__
