@@ -5,3 +5,4 @@ MANIFEST.in
 /build
 /dist
 /*.egg-info
+.idea
