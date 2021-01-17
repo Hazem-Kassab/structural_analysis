@@ -99,8 +99,8 @@ The axis colors are as follows:
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Pyramid_Frame.JPG?raw=true)
 
 ## Gallary
-
-
+Python files for below pictures can be found in the "Examples" folder. 
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Two_Story_Frame.JPG?raw=true)
 ## Under Development
 The following enhancements will be included soon:
  * Releases at element end nodes.
