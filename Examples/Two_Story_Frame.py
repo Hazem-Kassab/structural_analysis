@@ -1,3 +1,5 @@
+##Two_Story_Frame.py
+
 from StructuralAnalysis import Node, Structure, Section, Material, Solver, Visualization
 from StructuralAnalysis.FrameElements import *
 
@@ -67,8 +69,6 @@ n4.dof_4.restrained = True
 n4.dof_5.restrained = True
 n4.dof_6.restrained = True
 
-n5.dof_3.displaced = -50
-
 n10.dof_1.force = 2000000
 n6.dof_3.force = 4000000
 
@@ -77,7 +77,6 @@ structure = Structure([e15, e26, e37, e48, e56, e68, e87, e57, e59, e610, e711, 
 
 Solver.analyze_first_order_elastic(structure)
 
-# Visualization.show_structure(structure)
-# Visualization.show_deformed_shape(structure, 10, 1)
-# Visualization.execute_qt()
-
+Visualization.show_structure(structure)
+Visualization.show_deformed_shape(structure, 10, 1)
+Visualization.execute_qt()

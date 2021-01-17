@@ -15,6 +15,7 @@ class TwoDimensionalFrameElement(Element):
         super().__init__(start_node, end_node, section, material)
 
     def _local_matrix(self):
+
         le = self.length
         a = self.material.elasticity_modulus * self.section.area / le
         ei = self.material.elasticity_modulus * self.section.inertia_z

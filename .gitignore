@@ -6,3 +6,5 @@ MANIFEST.in
 /dist
 /*.egg-info
 .idea
+Results.txt
+Input.txt

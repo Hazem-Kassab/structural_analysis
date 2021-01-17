@@ -38,7 +38,7 @@ from StructuralAnalysis.FrameElements import Element
 class Structure:
 
     def __init__(self, elements: [Element]):
-        self.elements = elements
+        self.elements = sorted(elements, key=lambda x: x.id)
         self.nodes, self.degrees_of_freedom = self.__nodes()
         self.free_degrees_of_freedom, self.restrained_degrees_of_freedom = self.__free_and_restrained_dofs()
         self.no_of_degrees_of_freedom = self.degrees_of_freedom[-1].id

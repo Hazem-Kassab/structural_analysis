@@ -88,6 +88,18 @@ Visualization.show_deformed_shape(structure, 10, 200)
 Visualization.execute_qt()
 
 ```
+## Output
+Upon running the above code, the following window pops up showing 
+the undeformed structure (white) and the deformed shape (red).
+The axis colors are as follows:
+- Blue : X-axis
+- Yellow: Y-axis
+- Green: Z-axis
+ 
+![Alt text](Examples/Pyramid_Frame.jpg?raw=true "Title")
+
+##Gallary
+
 
 ## Under Development
 The following enhancements will be included soon:
