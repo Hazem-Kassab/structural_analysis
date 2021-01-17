@@ -96,9 +96,9 @@ The axis colors are as follows:
 - Yellow: Y-axis
 - Green: Z-axis
  
-![Alt text](Examples/Pyramid_Frame.jpg?raw=true "Title")
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Pyramid_Frame.JPG?raw=true)
 
-##Gallary
+## Gallary
 
 
 ## Under Development
