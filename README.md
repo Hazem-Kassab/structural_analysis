@@ -138,7 +138,7 @@ The axis colors are as follows:
 - Yellow: Y-axis
 - Green: Z-axis
  
-
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Two_Story_Frame.JPG?raw=true)
 
 ## Gallary
 Python files for below pictures can be found in the "Examples" folder.
@@ -150,9 +150,11 @@ Python files for below pictures can be found in the "Examples" folder.
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Two_Story_Frame.JPG?raw=true)
 * Examples/ Frame_Truss.py
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Humburg-Germany-Airport-Terminal.jpg?raw=true)
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Humburg-Germany-Airport-Draft.JPG?raw=true)
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Frame_Truss.JPG?raw=true)
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Frame_Truss_Deformed_Shape.JPG?raw=true)
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Hamburg_Airport_Prototype.JPG?raw=true)
+
 
 
 ## Under Development
@@ -172,4 +174,3 @@ Kindly note that the library is still under development, errors may arise as
 the library has not been tested and exceptions have not been handled. The visualization depends on graphics library 
 "PyQtGraph" which is still in its early stages of development, as a result, some of the features of displaying texts
 (i.e., node labels, axis labels, ..) have not been included yet.
-
