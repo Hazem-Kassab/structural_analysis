@@ -5,43 +5,47 @@ import pyqtgraph.opengl as gl
 import numpy as np
 import math
 
-__max_coordinate = 0
+__structure = None
 
 app = QtGui.QApplication([])
 w = gl.GLViewWidget()
 
 
 def __initiate_window():
-    global __max_coordinate
+    distance = __get_camera_distance(__structure)
     w.setGeometry(50, 100, 700, 700)
-    w.opts['distance'] = __max_coordinate * 3
+    w.opts['distance'] = distance * 3
     w.setWindowTitle('pyqtgraph example: GLLinePlotItem')
     gz = gl.GLGridItem()
-    size = __max_coordinate * 5
+    size = distance * 5
     gz.setSize(size, size, size)
-    spacing = __max_coordinate / 5
+    spacing = distance / 5
     gz.setSpacing(spacing, spacing, spacing)
     w.addItem(gz)
     axis = gl.GLAxisItem()
-    size = __max_coordinate / 5
+    size = distance / 5
     axis.setSize(size, size, size)
     axis.rotate(90, 0, 0, 90)
     axis.rotate(90, 0, 90, 0)
     w.addItem(axis)
-    # w.qglColor(QtGui.QColor("w"))
-    # w.renderText(0,0,0,"node 1")
+
+
+def __get_camera_distance(structure):
+    maximum = 0
+    for node in structure.nodes:
+        abs_max = max(abs(node.x), abs(node.y), abs(node.z))
+        if abs_max > maximum:
+            maximum = abs_max
+    return maximum
 
 
 def show_structure(structure: Structure):
-    maximum = 0
+    global __structure
+    __structure = structure
     for element in structure.elements:
         x = np.array([element.start_node.x, element.end_node.x])
         y = np.array([element.start_node.y, element.end_node.y])
         z = np.array([element.start_node.z, element.end_node.z])
-
-        abs_max = max(abs(x[0]), abs(x[1]), abs(y[0]), abs(y[1]), abs(z[0]), abs(z[1]))
-        if abs_max > maximum:
-            maximum = abs_max
 
         pts = np.vstack([x, y, z]).T
         plt = gl.GLLinePlotItem(pos=pts, color='w', width=2, antialias=True)
@@ -50,11 +54,11 @@ def show_structure(structure: Structure):
 
         w.addItem(plt)
     global __max_coordinate
-    __max_coordinate = maximum
 
 
 def show_deformed_shape(structure: Structure, number_of_stations: int, scale: int):
-
+    global __structure
+    __structure = structure
     for element in structure.elements:
         pts = __get_stations_global_displaced_position(element, number_of_stations, scale)
         plt = gl.GLLinePlotItem(pos=pts, color='r', width=2, antialias=True)
