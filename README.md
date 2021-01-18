@@ -21,6 +21,8 @@ pip install pyqtgraph==0.11.1
 ## Usage
 
 ```python
+# Two_Story_Frame.py
+
 from StructuralAnalysis import Node, Structure, Section, Material, Solver, Visualization
 from StructuralAnalysis.FrameElements import *
 
@@ -29,63 +31,103 @@ from StructuralAnalysis.FrameElements import *
 #    - use consistent units
 #    - each node has 6 degrees of freedom dx: dof_1, dy: dof_2, dz: dof_3, rx: dof_4, ry: dof_5, rz: dof_6
 
-#create node objects <Node(x, y, z)>
-node_1 = Node(0, 0, 0)
-node_2 = Node(2, 0, 0)
-node_3 = Node(1, 1, 1)
-node_4 = Node(1, 0, 2)
+# create node objects <Node(x, y, z)>
+n1 = Node(0, 0, 0)
+n2 = Node(6000, 0, 0)
+n3 = Node(0, 0, 6000)
+n4 = Node(6000, 0, 6000)
 
-#create section object <Section.Circle(radius)>
-circle = Section.Circle(0.05)
+n5 = Node(0, 6000, 0)
+n6 = Node(6000, 6000, 0)
+n7 = Node(0, 6000, 6000)
+n8 = Node(6000, 6000, 6000)
 
-#create section object <Section.Square(breadth, depth)>
-rectangle = Section.Rectangle(0.03, 0.06)
+n9 = Node(0, 12000, 0)
+n10 = Node(6000, 12000, 0)
+n11 = Node(0, 12000, 6000)
+n12 = Node(6000, 12000, 6000)
 
-#create material object <Material.Steel(yield_strength, ultimate_strength, modulus_of_elasticity. poissons_ratio)>
-steel = Material.Steel(250000, 400000, 200*10**6, 0.2)
+# create section object
+user_defined_section = Section.ArbitrarySection(area=3000, inertia_y=180 * 10 ** 6, inertia_z=180 * 10 ** 6,
+                                                polar_inertia=360*10**6, warping_rigidity=0)
 
-#create frame element objects <FrameElement(start_node: Node, end_node: Node, section: Section, material: Material)>
-element_1 = FrameElement(node_1, node_3, rectangle, steel)
-element_2 = FrameElement(node_2, node_3, rectangle, steel)
+rectangular_section = Section.Rectangle(breadth=150, depth=300)
 
-#create truss element object <TrussElement(start_node: Node, end_node: Node, section: Section, material: Material)>
-element_3 = TrussElement(node_4, node_3, circle, steel)
+# create material object
+steel = Material.Steel(yield_strength=250, ultimate_strength=400, elasticity_modulus=200000, poissons_ratio=0.2)
 
-#define fixities; node_1 is fixed, node_2 & node_4 are hinged
-node_1.dof_1.restrained = True
-node_1.dof_2.restrained = True
-node_1.dof_3.restrained = True
-node_1.dof_4.restrained = True
-node_1.dof_5.restrained = True
-node_1.dof_6.restrained = True
+# create frame element objects <FrameElement(start_node: Node, end_node: Node, section: Section, material: Material)>
+e15 = FrameElement(n1, n5, user_defined_section, steel)
+e26 = FrameElement(n2, n6, user_defined_section, steel)
+e37 = FrameElement(n3, n7, rectangular_section, steel)
+e48 = FrameElement(n4, n8, rectangular_section, steel)
 
-node_2.dof_1.restrained = True
-node_2.dof_2.restrained = True
-node_2.dof_3.restrained = True
+e56 = FrameElement(n5, n6, user_defined_section, steel)
+e68 = FrameElement(n6, n8, user_defined_section, steel)
+e87 = FrameElement(n8, n7, rectangular_section, steel)
+e57 = FrameElement(n5, n7, rectangular_section, steel)
 
-node_4.dof_1.restrained = True
-node_4.dof_2.restrained = True
-node_4.dof_3.restrained = True
+e59 = FrameElement(n5, n9, user_defined_section, steel)
+e610 = FrameElement(n10, n6, user_defined_section, steel)
+e711 = FrameElement(n11, n7, rectangular_section, steel)
+e812 = FrameElement(n8, n12, rectangular_section, steel)
 
-#define acting forces; applied to node_3 in the z-direction
-node_3.dof_3.force = 700
+e910 = FrameElement(n9, n10, rectangular_section, steel)
+e1112 = FrameElement(n11, n12, rectangular_section, steel)
+e911 = FrameElement(n11, n9, user_defined_section, steel)
+e1012 = FrameElement(n10, n12, user_defined_section, steel)
 
-#set initial displacement to node 2 in the y-direction
-node_2.dof_2.displacement = 0.001
+# create truss element object
+e16 = TrussElement(n1, n6, rectangular_section, steel)
 
-#create sttucture object <Structure(elements: list(Element))>
-structure = Structure([element_1, element_2, element_3])
+# assign boundary conditions; node_1 is hinged, node_2, 3, 4 are fixed
+n1.dof_1.restrained = True
+n1.dof_2.restrained = True
+n1.dof_3.restrained = True
 
-#run first order elastic analysis
+n2.dof_1.restrained = True
+n2.dof_2.restrained = True
+n2.dof_3.restrained = True
+n2.dof_4.restrained = True
+n2.dof_5.restrained = True
+n2.dof_6.restrained = True
+
+n3.dof_1.restrained = True
+n3.dof_2.restrained = True
+n3.dof_3.restrained = True
+n3.dof_4.restrained = True
+n3.dof_5.restrained = True
+n3.dof_6.restrained = True
+
+n4.dof_1.restrained = True
+n4.dof_2.restrained = True
+n4.dof_3.restrained = True
+n4.dof_4.restrained = True
+n4.dof_5.restrained = True
+n4.dof_6.restrained = True
+
+# assign loads to node_10 in the x-direction, and to node_6 in the z-direction
+n10.dof_1.force = 2000000
+n6.dof_3.force = 4000000
+
+# assign initial displacement to node_4 in the negative y-direction
+n4.dof_2.displaced = -1000
+
+# create structure object
+structure = Structure([e15, e26, e37, e48, e56, e68, e87, e57, e59, e610, e711, e812, e910, e1112, e911, e1012, e16])
+
+# run first_order_elastic analysis
 Solver.analyze_first_order_elastic(structure)
 
-#display structure (x is blue, y is yellow, z is green)
+# show undeformed structure
 Visualization.show_structure(structure)
 
-#display deformed structure <show_deformed_shape(structure, element_signments, scale)> (displayed in red)
-Visualization.show_deformed_shape(structure, 10, 200)
+# show deformations <show_deformed_shape(structure, number_of_stations, scale)>
+Visualization.show_deformed_shape(structure, 10, 1)
 
+# show window
 Visualization.execute_qt()
+
 
 ```
 ## Output
@@ -96,11 +138,23 @@ The axis colors are as follows:
 - Yellow: Y-axis
 - Green: Z-axis
  
-![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Pyramid_Frame.JPG?raw=true)
+
 
 ## Gallary
 Python files for below pictures can be found in the "Examples" folder.
+* Examples/ Hinged_Fixed_2D_Frame.py
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Hinged_Fixed_2D_Frame.JPG?raw=true)
+* Examples/ Pyramid_Frame.py
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Pyramid_Frame.JPG?raw=true)
+* Examples/ Two_Story_Frame.py
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Two_Story_Frame.JPG?raw=true)
+* Examples/ Frame_Truss.py
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Humburg-Germany-Airport-Terminal.jpg?raw=true)
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Frame_Truss.JPG?raw=true)
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Frame_Truss_Deformed_Shape.JPG?raw=true)
+![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Hamburg_Airport_Prototype.JPG?raw=true)
+
+
 ## Under Development
 The following enhancements will be included soon:
  * Releases at element end nodes.
