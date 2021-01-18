@@ -1,4 +1,4 @@
-##Two_Story_Frame.py
+# Two_Story_Frame.py
 
 from StructuralAnalysis import Node, Structure, Section, Material, Solver, Visualization
 from StructuralAnalysis.FrameElements import *

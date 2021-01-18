@@ -1,4 +1,4 @@
-##Two_Frame_Truss.py
+# Two_Frame_Truss.py
 
 from StructuralAnalysis import Node, Structure, Section, Material, Solver, Visualization
 from StructuralAnalysis.FrameElements import *
@@ -11,7 +11,7 @@ section_3 = Section.Rectangle(0.02, 0.06)
 
 
 def frame_truss(z):
-    #this function creates single truss frame at given z coordinate
+    # this function creates single truss frame at given z coordinate
     angle = 84.96
     upper_chord_1_nodes = []
     upper_chord_2_nodes = []
@@ -35,7 +35,7 @@ def frame_truss(z):
 
     elements = []
 
-    #create two upper chords and one lower chord
+    # create two upper chords and one lower chord
     for i in range(len(upper_chord_1_nodes)-1):
         start_node_1 = upper_chord_1_nodes[i]
         end_node_1 = upper_chord_1_nodes[i+1]
@@ -47,7 +47,7 @@ def frame_truss(z):
                          FrameElement(start_node_2, end_node_2, section, steel),
                          FrameElement(start_node_3, end_node_3, section, steel)])
 
-    #create vertical and horizontal truss members
+    # create vertical and horizontal truss members
     for i in range(len(upper_chord_1_nodes)):
         start_node_1 = upper_chord_1_nodes[i]
         start_node_2 = upper_chord_2_nodes[i]
@@ -56,7 +56,7 @@ def frame_truss(z):
                          TrussElement(start_node_3, start_node_1, section, steel),
                          TrussElement(start_node_3, start_node_2, section, steel)])
 
-    #create diagonal elements in first two bays
+    # create diagonal elements in first two bays
     for i in range(2):
         start_node_1 = upper_chord_1_nodes[i+1]
         start_node_2 = upper_chord_2_nodes[i+1]
@@ -66,7 +66,7 @@ def frame_truss(z):
 
     half_range = math.trunc(len(upper_chord_1_nodes)/2)
 
-    #create diagonal elements after first two bays and up to half span
+    # create diagonal elements after first two bays and up to half span
     for i in range(2, half_range):
         start_node_1 = upper_chord_1_nodes[i]
         start_node_2 = upper_chord_2_nodes[i]
@@ -74,7 +74,7 @@ def frame_truss(z):
         elements.extend([TrussElement(start_node_3, start_node_1, section, steel),
                          TrussElement(start_node_3, start_node_2, section, steel)])
 
-    #create diagonal elements from half span to the end except last two bays
+    # create diagonal elements from half span to the end except last two bays
     for i in range(half_range, len(upper_chord_1_nodes)-3):
         start_node_1 = upper_chord_1_nodes[i+1]
         start_node_2 = upper_chord_2_nodes[i+1]
@@ -82,7 +82,7 @@ def frame_truss(z):
         elements.extend([TrussElement(start_node_3, start_node_1, section, steel),
                          TrussElement(start_node_3, start_node_2, section, steel)])
 
-    #create diagonal elements for last two bays
+    # create diagonal elements for last two bays
     for i in range(len(upper_chord_1_nodes)-3, len(upper_chord_1_nodes)-1):
         start_node_1 = upper_chord_1_nodes[i]
         start_node_2 = upper_chord_2_nodes[i]
@@ -94,11 +94,11 @@ def frame_truss(z):
 
 
 def support_elements(x, y, z, nodes):
-    #this function creates support consisting of four link member at given x,y,z and connecting four nodes
+    # this function creates support consisting of four link member at given x,y,z and connecting four nodes
     elements = []
     node = Node(x, y, z)
 
-    #support is hinged
+    # support is hinged
     node.dof_1.restrained = True
     node.dof_2.restrained = True
     node.dof_3.restrained = True
@@ -112,13 +112,13 @@ elements = []
 for i in range(0, 100, 20):
     elements += frame_truss(i)
 
-#position of support
+# position of support
 x1 = 305 * math.cos(math.radians(360/420 * (104+13))) + 11.5
 x2 = 305 * math.cos(math.radians(360/420 * (104+3))) + 11.5
 y = 0
 z = 13
 
-#create 4 elements for lower support
+# create 4 elements for lower support
 for i in range(4):
     node_1 = elements[36 + (131 * i) - 1].end_node
     node_2 = elements[42 + (131 * i) - 1].end_node
@@ -127,7 +127,7 @@ for i in range(4):
     elements += support_elements(x1, y, z, [node_1, node_2, node_3, node_4])
     z += 20
 
-#create 4 elements for upper support
+# create 4 elements for upper support
 y = 5
 z = 13
 for i in range(4):
@@ -138,7 +138,7 @@ for i in range(4):
     elements += support_elements(x2, y, z, [node_1, node_2, node_3, node_4])
     z += 20
 
-#create framed purlins
+# create framed purlins
 for i in range(17):
     for j in range(4):
         node_1 = elements[49+(131*j)-1 + (3*i)].end_node
@@ -146,10 +146,10 @@ for i in range(17):
         element = FrameElement(node_1, node_2, section_3, steel)
         elements.append(element)
 
-#create structure object
+# create structure object
 structure = Structure(elements)
 
-#assign loads to first truss upper chord in the z-direction
+# assign loads to first truss upper chord in the z-direction
 for j in range(17):
     structure.nodes[1 + (j*2)].dof_3.force = 200
 

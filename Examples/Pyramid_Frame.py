@@ -1,4 +1,4 @@
-#Pyramid_Frame.py
+# Pyramid_Frame.py
 
 from StructuralAnalysis import Node, Structure, Section, Material, Solver, Visualization
 from StructuralAnalysis.FrameElements import *
