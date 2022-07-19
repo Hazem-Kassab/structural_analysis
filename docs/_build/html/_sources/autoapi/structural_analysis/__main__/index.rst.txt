@@ -1,0 +1,284 @@
+:py:mod:`structural_analysis.__main__`
+======================================
+
+.. py:module:: structural_analysis.__main__
+
+
+Module Contents
+---------------
+
+.. py:data:: n1
+   
+
+   
+
+.. py:data:: n2
+   
+
+   
+
+.. py:data:: n3
+   
+
+   
+
+.. py:data:: n4
+   
+
+   
+
+.. py:data:: n5
+   
+
+   
+
+.. py:data:: n6
+   
+
+   
+
+.. py:data:: n7
+   
+
+   
+
+.. py:data:: n8
+   
+
+   
+
+.. py:data:: n9
+   
+
+   
+
+.. py:data:: n10
+   
+
+   
+
+.. py:data:: n11
+   
+
+   
+
+.. py:data:: n12
+   
+
+   
+
+.. py:data:: section
+   
+
+   
+
+.. py:data:: steel
+   
+
+   
+
+.. py:data:: e15
+   
+
+   
+
+.. py:data:: e26
+   
+
+   
+
+.. py:data:: e37
+   
+
+   
+
+.. py:data:: e48
+   
+
+   
+
+.. py:data:: e56
+   
+
+   
+
+.. py:data:: e68
+   
+
+   
+
+.. py:data:: e87
+   
+
+   
+
+.. py:data:: e57
+   
+
+   
+
+.. py:data:: e59
+   
+
+   
+
+.. py:data:: e610
+   
+
+   
+
+.. py:data:: e711
+   
+
+   
+
+.. py:data:: e812
+   
+
+   
+
+.. py:data:: e910
+   
+
+   
+
+.. py:data:: e1112
+   
+
+   
+
+.. py:data:: e911
+   
+
+   
+
+.. py:data:: e1012
+   
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: restrained
+   :annotation: = True
+
+   
+
+.. py:data:: assign_initial_displacement
+   
+
+   
+
+.. py:data:: _force
+   :annotation: = 2000000
+
+   
+
+.. py:data:: _force
+   :annotation: = 4000000
+
+   
+
+.. py:data:: structure
+   
+
+   
+

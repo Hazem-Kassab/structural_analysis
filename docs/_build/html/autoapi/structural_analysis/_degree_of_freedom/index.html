@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>structural_analysis._degree_of_freedom &mdash; structural_analysis 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="structural_analysis.coordinate_system" href="../coordinate_system/index.html" />
+    <link rel="prev" title="structural_analysis.__main__" href="../__main__/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> structural_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Solver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Solver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualization/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualization</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__SolverHelper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__SolverHelper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__main__</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis._degree_of_freedom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../coordinate_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.coordinate_system</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.material</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../node/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.node</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../section/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.section</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.structure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.vector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">structural_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis._degree_of_freedom</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/structural_analysis/_degree_of_freedom/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-structural_analysis._degree_of_freedom">
+<span id="structural-analysis-degree-of-freedom"></span><h1><a class="reference internal" href="#module-structural_analysis._degree_of_freedom" title="structural_analysis._degree_of_freedom"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis._degree_of_freedom</span></code></a><a class="headerlink" href="#module-structural_analysis._degree_of_freedom" title="Permalink to this headline"></a></h1>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>_DegreeOfFreedom</p>
+</dd>
+</dl>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#structural_analysis._degree_of_freedom.Direction" title="structural_analysis._degree_of_freedom.Direction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Direction</span></code></a></p></td>
+<td><p>Generic enumeration.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#structural_analysis._degree_of_freedom._DegreeOfFreedom" title="structural_analysis._degree_of_freedom._DegreeOfFreedom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_DegreeOfFreedom</span></code></a></p></td>
+<td><p>A class to represent a degree of freedom.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom.Direction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis._degree_of_freedom.</span></span><span class="sig-name descname"><span class="pre">Direction</span></span><a class="headerlink" href="#structural_analysis._degree_of_freedom.Direction" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Generic enumeration.</p>
+<p>Derive from this class to define new enumerations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom.Direction.GLOBAL_X">
+<span class="sig-name descname"><span class="pre">GLOBAL_X</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#structural_analysis._degree_of_freedom.Direction.GLOBAL_X" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom.Direction.GLOBAL_Y">
+<span class="sig-name descname"><span class="pre">GLOBAL_Y</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#structural_analysis._degree_of_freedom.Direction.GLOBAL_Y" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom.Direction.GLOBAL_Z">
+<span class="sig-name descname"><span class="pre">GLOBAL_Z</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#structural_analysis._degree_of_freedom.Direction.GLOBAL_Z" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom.Direction.GLOBAL_RX">
+<span class="sig-name descname"><span class="pre">GLOBAL_RX</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#structural_analysis._degree_of_freedom.Direction.GLOBAL_RX" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom.Direction.GLOBAL_RY">
+<span class="sig-name descname"><span class="pre">GLOBAL_RY</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">5</span></em><a class="headerlink" href="#structural_analysis._degree_of_freedom.Direction.GLOBAL_RY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom.Direction.GLOBAL_RZ">
+<span class="sig-name descname"><span class="pre">GLOBAL_RZ</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">6</span></em><a class="headerlink" href="#structural_analysis._degree_of_freedom.Direction.GLOBAL_RZ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom._DegreeOfFreedom">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis._degree_of_freedom.</span></span><span class="sig-name descname"><span class="pre">_DegreeOfFreedom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../node/index.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis._degree_of_freedom.Direction" title="structural_analysis._degree_of_freedom.Direction"><span class="pre">Direction</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis._degree_of_freedom._DegreeOfFreedom" title="Permalink to this definition"></a></dt>
+<dd><p>A class to represent a degree of freedom.
+…</p>
+<dl class="simple">
+<dt>direction<span class="classifier">Direction</span></dt><dd><p>direction of the degree of freedom in structure coordinate system</p>
+</dd>
+<dt>node<span class="classifier">Node</span></dt><dd><p>node containing the degree of freedom</p>
+</dd>
+<dt>id<span class="classifier">int</span></dt><dd><p>node identifier unique for the degree of freedom instance</p>
+</dd>
+<dt>displacement<span class="classifier">float</span></dt><dd><p>displacement of the degree of freedom in the respective direction.
+initial displacement shall be assigned using method assign_initial_displacement.</p>
+</dd>
+<dt>restrained<span class="classifier">bool</span></dt><dd><p>false by default</p>
+</dd>
+<dt>_force<span class="classifier">float</span></dt><dd><p>assigned nodal forces to the degree of freedom instance</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>assign_force(self, value):</dt><dd><p>assigns force to degree of freedom instance in the instance direction</p>
+</dd>
+<dt>assign_initial_displacement(self, value):</dt><dd><p>assigns initial displacement to the node in the instance direction</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom._DegreeOfFreedom.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#structural_analysis._degree_of_freedom._DegreeOfFreedom.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom._DegreeOfFreedom.assign_force">
+<span class="sig-name descname"><span class="pre">assign_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis._degree_of_freedom._DegreeOfFreedom.assign_force" title="Permalink to this definition"></a></dt>
+<dd><p>assign a force to the degree of freedom in its direction.</p>
+<p>Keyword arguments:
+value – the magnitude of the force</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom._DegreeOfFreedom.assign_initial_displacement">
+<span class="sig-name descname"><span class="pre">assign_initial_displacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis._degree_of_freedom._DegreeOfFreedom.assign_initial_displacement" title="Permalink to this definition"></a></dt>
+<dd><p>Assign an initial displacement boundary condition
+to the degree of freedom in its direction.</p>
+<blockquote>
+<div><p>Keyword arguments:
+value – the amount of displacement</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis._degree_of_freedom._DegreeOfFreedom.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis._degree_of_freedom._DegreeOfFreedom.__str__" title="Permalink to this definition"></a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../__main__/index.html" class="btn btn-neutral float-left" title="structural_analysis.__main__" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../coordinate_system/index.html" class="btn btn-neutral float-right" title="structural_analysis.coordinate_system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Hazem Kassab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

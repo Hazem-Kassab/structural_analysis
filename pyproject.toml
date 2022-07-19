@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "structural_analysis"
+version = "0.1.0"
+description = "A python library that perfroms structural analysis"
+authors = ["Hazem Kassab"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyqtgraph = "^0.12.4"
+PyQt5 = "^5.15.6"
+PyOpenGL = "^3.1.6"
+pandas = "^1.4.2"
+numpy = "^1.22.4"
+matplotlib = "^3.5.2"
+
+[tool.poetry.dev-dependencies]
+sphinx-rtd-theme = "^1.0.0"
+sphinx-autoapi = "^1.8.4"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

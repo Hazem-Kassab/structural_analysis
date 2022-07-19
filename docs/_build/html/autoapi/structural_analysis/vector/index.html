@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>structural_analysis.vector &mdash; structural_analysis 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="structural_analysis.structure" href="../structure/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> structural_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Solver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Solver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualization/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualization</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__SolverHelper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__SolverHelper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_degree_of_freedom/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis._degree_of_freedom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../coordinate_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.coordinate_system</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.material</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../node/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.node</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../section/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.section</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.structure</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.vector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">structural_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.vector</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/structural_analysis/vector/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-structural_analysis.vector">
+<span id="structural-analysis-vector"></span><h1><a class="reference internal" href="#module-structural_analysis.vector" title="structural_analysis.vector"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.vector</span></code></a><a class="headerlink" href="#module-structural_analysis.vector" title="Permalink to this headline"></a></h1>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Vector</p>
+</dd>
+</dl>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vector</span></code></a></p></td>
+<td><p>A class to represent a vector.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.vector.</span></span><span class="sig-name descname"><span class="pre">Vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.vector.Vector" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+<p>A class to represent a vector.
+…</p>
+<dl class="simple">
+<dt>array<span class="classifier">list[float]</span></dt><dd><p>list of size 3 holding i, j, k values of the vector instance</p>
+</dd>
+<dt>_coordinate_system<span class="classifier">CoordinateSystem</span></dt><dd><p>coordinate system used to describe vector components (i, j, k)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>transform_vector(coordinate_system: CoordinateSystem):</dt><dd><p>returns a new transformed vector instance in the new coordinate system</p>
+</dd>
+<dt>magnitude:</dt><dd><p>returns the magnitude of the vector</p>
+</dd>
+<dt>normalized:</dt><dd><p>returns a new normalized vector instance</p>
+</dd>
+<dt>project_vector_on_vector(vector: Vector):</dt><dd><p>returns a new vector instance projected on the passed vector instance</p>
+</dd>
+<dt>project_vector_on_vector_scaler(vector: Vector):</dt><dd><p>returns a signed magnitude of vector projected on the passed vector instance</p>
+</dd>
+<dt>project_vector_on_plane(vector: Vector):</dt><dd><p>returns a new vector instance projected on a plane having the passed normal vector instance</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.transform_vector">
+<span class="sig-name descname"><span class="pre">transform_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinate_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../coordinate_system/index.html#structural_analysis.coordinate_system.CoordinateSystem" title="structural_analysis.coordinate_system.CoordinateSystem"><span class="pre">structural_analysis.coordinate_system.CoordinateSystem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.transform_vector" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new transformed vector instance in the new coordinate system.</p>
+<p>Keyword arguments:
+coordinate_system – the coordinate system which the vector transforms to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.magnitude">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">magnitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.magnitude" title="Permalink to this definition"></a></dt>
+<dd><p>returns the magnitude of the vector.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.normalized">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.normalized" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new normalized vector instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.project_vector_on_vector">
+<span class="sig-name descname"><span class="pre">project_vector_on_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.project_vector_on_vector" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new vector instance projected on the passed vector instance
+Keyword arguments:</p>
+<blockquote>
+<div><p>vector – a vector instance to project on.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.project_vector_on_vector_scaler">
+<span class="sig-name descname"><span class="pre">project_vector_on_vector_scaler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.vector.Vector.project_vector_on_vector_scaler" title="Permalink to this definition"></a></dt>
+<dd><p>returns a signed magnitude of vector projected on the passed vector instance
+Keyword arguments:</p>
+<blockquote>
+<div><p>vector – a vector instance to project on.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.project_vector_on_plane">
+<span class="sig-name descname"><span class="pre">project_vector_on_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane_normal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.project_vector_on_plane" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new vector instance projected on
+a plane having the passed normal vector instance</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keyword arguments:</dt><dd><p>plane_normal – a vector normal to plane.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.coordinate_system">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coordinate_system</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../coordinate_system/index.html#structural_analysis.coordinate_system.CoordinateSystem" title="structural_analysis.coordinate_system.CoordinateSystem"><span class="pre">structural_analysis.coordinate_system.CoordinateSystem</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.coordinate_system" title="Permalink to this definition"></a></dt>
+<dd><p>coordinate system used to describe vector components (i, j, k)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../structure/index.html" class="btn btn-neutral float-left" title="structural_analysis.structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Hazem Kassab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

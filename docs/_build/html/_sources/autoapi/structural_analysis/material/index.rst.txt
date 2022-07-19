@@ -1,0 +1,140 @@
+:py:mod:`structural_analysis.material`
+======================================
+
+.. py:module:: structural_analysis.material
+
+.. autoapi-nested-parse::
+
+   Classes:
+       Material
+       Steel
+       Concrete
+
+   Material is an abstract class.
+   Other classes are derived from Material class.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.material.Material
+   structural_analysis.material.Steel
+   structural_analysis.material.Concrete
+
+
+
+
+.. py:class:: Material(elasticity_modulus, poissons_ratio)
+
+   An abstract class to represent material instance assigned to an element.
+   ...
+
+   Attributes
+   ----------
+   elasticity_modulus : float
+       Modulus of elasticity of the material
+
+   poissons_ratio : float
+       Poisson's ratio of the material
+
+   Methods
+   -------
+   stress(self, strain):
+       abstract method, implemented by derived classes.
+       describes the constitutive relationship.
+       returns stress value on a given strain.
+
+
+   .. py:method:: shear_modulus(self)
+      :property:
+
+      abstract method, implemented by derived classes.
+      Represents shear modulus of material.
+
+
+   .. py:method:: stress(self, strain)
+      :abstractmethod:
+
+      abstract method, implemented by derived classes.
+      describes the constitutive relationship.
+      returns stress value on a given strain.
+
+
+
+.. py:class:: Steel(elasticity_modulus, poissons_ratio, yield_strength=None, ultimate_strength=None)
+
+   Bases: :py:obj:`Material`
+
+   A class to represent steel material instance assigned to an element.
+   ...
+
+   Attributes
+   ----------
+   elasticity_modulus : float
+       Modulus of elasticity of steel usually around 200 GPa
+
+   poissons_ratio : float
+       Poisson's ratio of steel usually around 0.3
+
+   yield_strength : float
+       Yield strength of steel
+
+   ultimate_strength : float
+       ultimate strength of steel
+
+   .. py:method:: stress(self, strain)
+      :abstractmethod:
+
+      describes the constitutive relationship.
+      returns stress value on a given strain.
+
+
+   .. py:method:: shear_modulus(self)
+      :property:
+
+      shear modulus of steel usually around 79.3 GPa
+
+
+
+.. py:class:: Concrete(elasticity_modulus, poissons_ratio, yield_strength=None, characteristic_strength=None)
+
+   Bases: :py:obj:`Material`
+
+   A class to represent concrete material instance assigned to an element.
+   ...
+
+   Attributes
+   ----------
+   elasticity_modulus : float
+       Modulus of elasticity concrete usually around 20 GPa
+
+   poissons_ratio : float
+       Poisson's ratio of concrete usually around 0.2
+
+   yield_strength : float
+       Yield strength of concrete at 0.2% offset in stress-strain diagram.
+
+   characteristic_strength : float
+       characteristic strength of concrete.
+
+
+   .. py:method:: shear_modulus(self)
+      :property:
+
+      shear modulus of concrete
+
+
+   .. py:method:: stress(self, strain)
+      :abstractmethod:
+
+      describes the constitutive relationship.
+      returns stress value on a given strain.
+
+
+

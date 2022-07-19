@@ -1,0 +1,94 @@
+:py:mod:`structural_analysis.node`
+==================================
+
+.. py:module:: structural_analysis.node
+
+.. autoapi-nested-parse::
+
+   Classes:
+       Node
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.node.Node
+
+
+
+
+.. py:class:: Node(x, y, z)
+
+   A class to represent a node.
+   ...
+
+   Attributes
+   ----------
+   x : float
+       x coordinate of the node in the structure coordinate system
+
+   y : float
+       y coordinate of the node in the structure coordinate system
+
+   z : float
+       z coordinate of the node in the structure coordinate system
+
+   _structure : Structure
+       structure instance containing the node
+
+   position_vector : Vector
+       position vector instance holding x, y, and z coordinates of the node instance
+
+   dof_x : _DegreeOfFreedom
+       translational degree of freedom instance in
+       the x-axis direction of the structure coordinate system
+
+   dof_y : _DegreeOfFreedom
+       translational degree of freedom instance in
+       the y-axis direction of the structure coordinate system
+
+   dof_z : _DegreeOfFreedom
+       translational degree of freedom instance in
+       the z-axis direction of the structure coordinate system
+
+   dof_rx : _DegreeOfFreedom
+       rotational degree of freedom instance around
+       the x-axis of the structure coordinate system
+
+   dof_ry : _DegreeOfFreedom
+       rotational degree of freedom instance around
+       the y-axis of the structure coordinate system
+
+   dof_rz : _DegreeOfFreedom
+       rotational degree of freedom instance around
+       the z-axis of the structure coordinate system
+
+   .. py:attribute:: __node_id
+      :annotation: = 1
+
+      
+
+   .. py:method:: degrees_of_freedom(self) -> list[structural_analysis._degree_of_freedom._DegreeOfFreedom]
+      :property:
+
+      returns a list holding the six degrees of freedom instances of the node
+
+
+   .. py:method:: structure(self) -> structural_analysis.Structure
+      :property:
+
+      structure containing the node instance
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+

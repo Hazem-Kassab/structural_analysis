@@ -1,0 +1,209 @@
+:py:mod:`structural_analysis.FrameElements.element`
+===================================================
+
+.. py:module:: structural_analysis.FrameElements.element
+
+.. autoapi-nested-parse::
+
+   Classes:
+       Element (Abstract)
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.FrameElements.element.Element
+
+
+
+
+.. py:class:: Element(start_node: structural_analysis.node.Node, end_node: structural_analysis.node.Node, section: structural_analysis.section.Section, material: structural_analysis.material.Material, beta_angle=0)
+
+   Bases: :py:obj:`abc.ABC`
+
+   An abstract class to represent an element.
+   ...
+
+   Attributes
+   ----------
+   id : int
+       unique identifier for the element.
+
+   start_node : Node
+       start node instance of the element.
+
+   end_node : Node
+       end node instance of the element.
+
+   section : Section
+       cross-section of the element
+
+   _vector: Vector
+       vector instance from start node to end node described in the structure coordinate system
+
+   length: float
+       length of the element
+
+   twist_angle: float
+       rotation angle of the element around its local x-axis, in degrees.
+
+   coordinate_system : CoordinateSystem
+       local coordinate system of the element. The element lies on the x-axis.
+
+   _structure : Structure
+       structure instance containing the element
+
+
+   Methods
+   -------
+   _geometry_transformation_matrix(self) -> numpy.ndarray:
+       returns a 3x3 transformation matrix from
+       local coordinate system to structure coordinate system
+
+   global_stiffness_matrix(self) -> np.array:
+       returns the element global stiffness matrix in the structure coordinate system
+
+   local_mesh_coordinates(self) -> np.ndarray:
+       returns a 2-d array of local coordinates of points evenly spaced along element.
+
+   global_mesh_coordinates(self) -> np.ndarray:
+       transforms local_mesh_coordinates into structure
+       coordinate system and returns global coordinates.
+
+   local_displacement_field(self) -> np.ndarray:
+       returns local displacements of local_mesh_coordinates points.
+
+   global_displacement_field(self) -> np.ndarray:
+       transforms local_displacement_field into structure
+       coordinate system and returns global displacements.
+
+   global_deformed_position(self, scale) -> np.ndarray:
+       returns global deformed position of an element in structure.
+       Sum of global displacement field and global mesh coordinates.
+
+   local_end_displacement_vector(self) -> np.ndarray:
+       returns displacements and rotations of
+       element start and end node after analysis is completed.
+
+   local_stiffness_matrix(self) -> np.array:
+       abstract method to be implemented be derived classes.
+       Represents the local stiffness matrix in the local element coordinates.
+
+   element_stiffness_transformation_matrix(self) -> np.ndarray:
+       abstract method to be implemented by derived classes.
+       Represents the transformation matrix of local stiffness matrix in
+       local element coordinates to structure coordinate system.
+
+   degrees_of_freedom(self) -> list[_DegreeOfFreedom]:
+       abstract method to be implemented by derived classes.
+       Returns list of degrees of freedom of start node and end node degrees of freedom.
+
+   shape_function_matrix(self, x) -> np.ndarray:
+       abstract method to be implemented by derived classes.
+       Returns 3x1 array of local displacements of point,
+       at position x, in the local coordinate system.
+
+   .. py:attribute:: id
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: element_subdivisions
+      :annotation: = 10
+
+      
+
+   .. py:method:: _geometry_transformation_matrix(self) -> numpy.ndarray
+
+      returns a 3x3 geometry transformation matrix from
+      element local coordinates to structure coordinate system.
+
+
+   .. py:method:: global_stiffness_matrix(self) -> numpy.array
+
+      returns the element global stiffness matrix in the structure coordinate system
+
+
+   .. py:method:: local_mesh_coordinates(self) -> numpy.ndarray
+
+      returns a 2-d array of local coordinates of points evenly spaced along element.
+
+
+   .. py:method:: global_mesh_coordinates(self) -> numpy.ndarray
+
+      transforms local_mesh_coordinates into structure
+      coordinate system and returns global coordinates.
+
+
+   .. py:method:: local_displacement_field(self) -> numpy.ndarray
+
+      returns local displacements of local_mesh_coordinates points.
+
+
+   .. py:method:: global_displacement_field(self, scale: float) -> numpy.ndarray
+
+      transforms local_displacement_field into structure
+      coordinate system and returns global displacements.
+
+
+   .. py:method:: global_deformed_position(self, scale) -> numpy.ndarray
+
+      returns global deformed position of an element in structure.
+      Sum of global displacement field and global mesh coordinates.
+
+
+   .. py:method:: local_end_displacement_vector(self) -> numpy.ndarray
+
+      returns displacements and rotations of element start
+      and end node after analysis is completed.
+
+
+   .. py:method:: local_stiffness_matrix(self) -> numpy.array
+      :abstractmethod:
+
+      abstract method to be implemented be derived classes.
+      Represents the local stiffness matrix in the local element coordinates.
+
+
+   .. py:method:: element_stiffness_transformation_matrix(self) -> numpy.ndarray
+      :abstractmethod:
+
+      abstract method to be implemented by derived classes.
+      Represents the transformation matrix of local stiffness matrix in
+      local element coordinates to structure coordinate system.
+
+
+   .. py:method:: degrees_of_freedom(self) -> list[structural_analysis._degree_of_freedom._DegreeOfFreedom]
+      :property:
+
+      abstract method to be implemented by derived classes.
+      Returns list of degrees of freedom of start node and end node degrees of freedom.
+
+
+   .. py:method:: shape_function_matrix(self, x) -> numpy.ndarray
+      :abstractmethod:
+
+      abstract method to be implemented by derived classes.
+      Returns 3x1 array of local displacements of point ,at position x,
+      in the local coordinate system.
+
+
+   .. py:method:: elastic_geometric_matrix(self)
+      :property:
+
+      for future use of geometric stiffness matrix
+
+
+   .. py:method:: structure(self) -> structural_analysis.structure.Structure
+      :property:
+
+      structure instance containing the element
+
+
+

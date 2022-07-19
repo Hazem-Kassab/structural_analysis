@@ -1,0 +1,185 @@
+:py:mod:`structural_analysis.section`
+=====================================
+
+.. py:module:: structural_analysis.section
+
+.. autoapi-nested-parse::
+
+   Classes:
+       Section
+       Circle
+       Rectangle
+       ArbitrarySection
+
+   Section class is an abstract class.
+   Other classes are derived from Section.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.section.Section
+   structural_analysis.section.Circle
+   structural_analysis.section.Rectangle
+   structural_analysis.section.ArbitrarySection
+
+
+
+
+.. py:class:: Section
+
+   An abstract class to represent a section which will be assigned to element objects.
+   ...
+
+   .. py:method:: area(self)
+      :property:
+
+      area of the cross-section
+
+
+   .. py:method:: inertia_y(self)
+      :property:
+
+      inertia of the cross-section around the element y-axis
+
+
+   .. py:method:: inertia_z(self)
+      :property:
+
+      inertia of the cross-section around the element z-axis
+
+
+   .. py:method:: polar_inertia(self)
+      :property:
+
+      inertia of the cross-section around the element x-axis
+
+
+   .. py:method:: warping_rigidity(self)
+      :property:
+
+      warping rigidity of the cross-section
+
+
+
+.. py:class:: Circle(radius)
+
+   Bases: :py:obj:`Section`
+
+   A class to represent a circular section which will be assigned to element objects.
+   ...
+
+   .. py:method:: area(self)
+      :property:
+
+      area of the cross-section
+
+
+   .. py:method:: inertia_y(self)
+      :property:
+
+      inertia of the cross-section around the element y-axis
+
+
+   .. py:method:: inertia_z(self)
+      :property:
+
+      inertia of the cross-section around the element z-axis
+
+
+   .. py:method:: polar_inertia(self)
+      :property:
+
+      inertia of the cross-section around the element x-axis
+
+
+   .. py:method:: warping_rigidity(self)
+      :property:
+
+      zero for circular cross-sections
+
+
+
+.. py:class:: Rectangle(breadth, depth)
+
+   Bases: :py:obj:`Section`
+
+   A class to represent a rectangular section which will be assigned to element objects.
+   ...
+
+   .. py:method:: area(self)
+      :property:
+
+      area of the cross-section
+
+
+   .. py:method:: inertia_y(self)
+      :property:
+
+      inertia of the cross-section around the element y-axis
+
+
+   .. py:method:: inertia_z(self)
+      :property:
+
+      inertia of the cross-section around the element z-axis
+
+
+   .. py:method:: polar_inertia(self)
+      :property:
+
+      inertia of the cross-section around the element x-axis
+
+
+   .. py:method:: warping_rigidity(self)
+      :property:
+
+      warping rigidity of the cross-section
+
+
+
+.. py:class:: ArbitrarySection(area, inertia_y, inertia_z, polar_inertia, warping_rigidity=None)
+
+   Bases: :py:obj:`Section`
+
+   A class to represent an arbitrary shaped section with user-defined geometric properties
+   which will be assigned to element objects.
+   ...
+
+   .. py:method:: area(self)
+      :property:
+
+      area of the cross-section
+
+
+   .. py:method:: inertia_y(self)
+      :property:
+
+      inertia of the cross-section around the element y-axis
+
+
+   .. py:method:: inertia_z(self)
+      :property:
+
+      inertia of the cross-section around the element z-axis
+
+
+   .. py:method:: polar_inertia(self)
+      :property:
+
+      inertia of the cross-section around the element x-axis
+
+
+   .. py:method:: warping_rigidity(self)
+      :property:
+
+      warping rigidity of the cross-section
+
+
+

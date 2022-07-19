@@ -1,0 +1,109 @@
+:py:mod:`structural_analysis.vector`
+====================================
+
+.. py:module:: structural_analysis.vector
+
+.. autoapi-nested-parse::
+
+   Classes:
+       Vector
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.vector.Vector
+
+
+
+
+.. py:class:: Vector(array: list[float])
+
+   Bases: :py:obj:`numpy.ndarray`
+
+   A class to represent a vector.
+   ...
+
+   Attributes
+   ----------
+   array : list[float]
+       list of size 3 holding i, j, k values of the vector instance
+
+   _coordinate_system : CoordinateSystem
+       coordinate system used to describe vector components (i, j, k)
+
+   Methods
+   -------
+   transform_vector(coordinate_system: CoordinateSystem):
+       returns a new transformed vector instance in the new coordinate system
+
+   magnitude:
+       returns the magnitude of the vector
+
+   normalized:
+       returns a new normalized vector instance
+
+   project_vector_on_vector(vector: Vector):
+       returns a new vector instance projected on the passed vector instance
+
+   project_vector_on_vector_scaler(vector: Vector):
+       returns a signed magnitude of vector projected on the passed vector instance
+
+   project_vector_on_plane(vector: Vector):
+       returns a new vector instance projected on a plane having the passed normal vector instance
+
+   .. py:method:: transform_vector(self, coordinate_system: structural_analysis.coordinate_system.CoordinateSystem) -> Vector
+
+      returns a new transformed vector instance in the new coordinate system.
+
+      Keyword arguments:
+      coordinate_system -- the coordinate system which the vector transforms to.
+
+
+   .. py:method:: magnitude(self) -> float
+      :property:
+
+      returns the magnitude of the vector.
+
+
+   .. py:method:: normalized(self) -> Vector
+      :property:
+
+      returns a new normalized vector instance.
+
+
+   .. py:method:: project_vector_on_vector(self, vector: Vector) -> Vector
+
+      returns a new vector instance projected on the passed vector instance
+      Keyword arguments:
+          vector -- a vector instance to project on.
+
+
+   .. py:method:: project_vector_on_vector_scaler(self, vector_2: Vector)
+
+      returns a signed magnitude of vector projected on the passed vector instance
+      Keyword arguments:
+          vector -- a vector instance to project on.
+
+
+   .. py:method:: project_vector_on_plane(self, plane_normal: Vector) -> Vector
+
+      returns a new vector instance projected on
+      a plane having the passed normal vector instance
+          Keyword arguments:
+              plane_normal -- a vector normal to plane.
+
+
+   .. py:method:: coordinate_system(self) -> structural_analysis.coordinate_system.CoordinateSystem
+      :property:
+
+      coordinate system used to describe vector components (i, j, k)
+
+
+

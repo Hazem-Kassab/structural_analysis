@@ -1,0 +1,41 @@
+:py:mod:`structural_analysis.Visualizer`
+========================================
+
+.. py:module:: structural_analysis.Visualizer
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.Visualizer.Visualizer
+
+
+
+
+.. py:class:: Visualizer(structure: structural_analysis.structure.Structure)
+
+   .. py:method:: __initiate_window(self)
+
+
+   .. py:method:: __get_camera_distance(self)
+
+
+   .. py:method:: show_structure(self)
+
+
+   .. py:method:: show_deformed_shape(self, scale: float)
+
+
+   .. py:method:: __get_stations_global_displaced_position(element: structural_analysis.FrameElements.element.Element, scale)
+      :staticmethod:
+
+
+   .. py:method:: execute_qt(self)
+
+
+

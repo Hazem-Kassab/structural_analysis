@@ -1,0 +1,87 @@
+:py:mod:`structural_analysis.Visualization`
+===========================================
+
+.. py:module:: structural_analysis.Visualization
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.Visualization.__initiate_window
+   structural_analysis.Visualization.__get_camera_distance
+   structural_analysis.Visualization.show_structure
+   structural_analysis.Visualization.show_deformed_shape
+   structural_analysis.Visualization.execute_qt
+   structural_analysis.Visualization.__transformation_matrix
+   structural_analysis.Visualization.__local_end_displacements
+   structural_analysis.Visualization.__get_stations_local_coordinates
+   structural_analysis.Visualization.__get_stations_global_coordinates
+   structural_analysis.Visualization.__get_stations_local_displacement
+   structural_analysis.Visualization.__get_stations_global_displaced_position
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.Visualization.__structure
+   structural_analysis.Visualization.app
+   structural_analysis.Visualization.w
+
+
+.. py:data:: __structure
+   
+
+   
+
+.. py:data:: app
+   
+
+   
+
+.. py:data:: w
+   
+
+   
+
+.. py:function:: __initiate_window()
+
+
+.. py:function:: __get_camera_distance(structure)
+
+
+.. py:function:: show_structure(structure: structural_analysis.Structure)
+
+
+.. py:function:: show_deformed_shape(structure: structural_analysis.Structure, number_of_stations: int, scale: int)
+
+
+.. py:function:: execute_qt()
+
+
+.. py:function:: __transformation_matrix(element)
+
+
+.. py:function:: __local_end_displacements(element: structural_analysis.FrameElements.element.Element)
+
+
+.. py:function:: __get_stations_local_coordinates(element: structural_analysis.FrameElements.element.Element, number_of_stations)
+
+
+.. py:function:: __get_stations_global_coordinates(element: structural_analysis.FrameElements.element.Element, number_of_stations, stations_local_coordinates)
+
+
+.. py:function:: __get_stations_local_displacement(element: structural_analysis.FrameElements.element.Element, number_of_stations, stations_local_coordinates)
+
+
+.. py:function:: __get_stations_global_displaced_position(element: structural_analysis.FrameElements.element.Element, number_of_stations, scale)
+
+

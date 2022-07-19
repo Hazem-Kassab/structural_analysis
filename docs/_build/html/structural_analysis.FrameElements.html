@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>structural_analysis.FrameElements package &mdash; structural_analysis 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> structural_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">structural_analysis.FrameElements package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.FrameElements.TwoDimensionalFrameElement">structural_analysis.FrameElements.TwoDimensionalFrameElement module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.FrameElements.TwoDimensionalTrussElement">structural_analysis.FrameElements.TwoDimensionalTrussElement module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.FrameElements.element">structural_analysis.FrameElements.element module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.FrameElements.frame_element">structural_analysis.FrameElements.frame_element module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.FrameElements.truss_element">structural_analysis.FrameElements.truss_element module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.FrameElements">Module contents</a><ul>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement">TwoDimensionalFrameElement</a><ul>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement">TwoDimensionalTrussElement</a><ul>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element">Element</a><ul>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.degrees_of_freedom">degrees_of_freedom</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.element_subdivisions">element_subdivisions</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.global_deformed_position">global_deformed_position</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.global_displacement_field">global_displacement_field</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.global_mesh_coordinates">global_mesh_coordinates</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.global_stiffness_matrix">global_stiffness_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.id">id</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.local_displacement_field">local_displacement_field</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.local_end_displacement_vector">local_end_displacement_vector</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.local_mesh_coordinates">local_mesh_coordinates</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.shape_function_matrix">shape_function_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.element.Element.structure">structure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.frame_element.FrameElement">FrameElement</a><ul>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.frame_element.FrameElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.frame_element.FrameElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.frame_element.FrameElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.frame_element.FrameElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.frame_element.FrameElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.truss_element.TrussElement">TrussElement</a><ul>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.truss_element.TrussElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.truss_element.TrussElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.truss_element.TrussElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.truss_element.TrussElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li><a class="reference internal" href="#structural_analysis.FrameElements.truss_element.TrussElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">structural_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>structural_analysis.FrameElements package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/structural_analysis.FrameElements.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="structural-analysis-frameelements-package">
+<h1>structural_analysis.FrameElements package<a class="headerlink" href="#structural-analysis-frameelements-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-structural_analysis.FrameElements.TwoDimensionalFrameElement">
+<span id="structural-analysis-frameelements-twodimensionalframeelement-module"></span><h2>structural_analysis.FrameElements.TwoDimensionalFrameElement module<a class="headerlink" href="#module-structural_analysis.FrameElements.TwoDimensionalFrameElement" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>TwoDimensionalFrameElement</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.FrameElements.TwoDimensionalFrameElement.</span></span><span class="sig-name descname"><span class="pre">TwoDimensionalFrameElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.section.Section" title="structural_analysis.section.Section"><span class="pre">structural_analysis.section.Section</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.material.Material" title="structural_analysis.material.Material"><span class="pre">structural_analysis.material.Material</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.FrameElements.element.Element" title="structural_analysis.FrameElements.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.FrameElements.element.Element</span></code></a></p>
+<p>A class to represent a frame element in 2-d space.
+Derived from Element Base class.
+The element has six degrees of freedom, two translational
+and one rotational degrees of freedom per each node.</p>
+<dl class="simple">
+<dt>local_stiffness_matrix(self) -&gt; np.array:</dt><dd><p>Represents a 2x2 local stiffness matrix in the local element coordinates.</p>
+</dd>
+<dt>element_stiffness_transformation_matrix(self) -&gt; np.ndarray:</dt><dd><p>Represents a 6x6 transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd>
+<dt>degrees_of_freedom(self) -&gt; list[_DegreeOfFreedom]:</dt><dd><p>Returns list of the six degrees of freedom.</p>
+</dd>
+<dt>shape_function_matrix(self, x) -&gt; np.ndarray:</dt><dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.degrees_of_freedom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">degrees_of_freedom</span></span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.degrees_of_freedom" title="Permalink to this definition"></a></dt>
+<dd><p>Returns list of degrees of freedom of start node and end node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.elastic_geometric_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elastic_geometric_matrix</span></span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.elastic_geometric_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>for future use of geometric stiffness matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.element_stiffness_transformation_matrix">
+<span class="sig-name descname"><span class="pre">element_stiffness_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.element_stiffness_transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.local_stiffness_matrix">
+<span class="sig-name descname"><span class="pre">local_stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.local_stiffness_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the local stiffness matrix in the local element coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.shape_function_matrix">
+<span class="sig-name descname"><span class="pre">shape_function_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.shape_function_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.FrameElements.TwoDimensionalTrussElement">
+<span id="structural-analysis-frameelements-twodimensionaltrusselement-module"></span><h2>structural_analysis.FrameElements.TwoDimensionalTrussElement module<a class="headerlink" href="#module-structural_analysis.FrameElements.TwoDimensionalTrussElement" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>TwoDimensionalTrussElement</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.FrameElements.TwoDimensionalTrussElement.</span></span><span class="sig-name descname"><span class="pre">TwoDimensionalTrussElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.section.Section" title="structural_analysis.section.Section"><span class="pre">structural_analysis.section.Section</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.material.Material" title="structural_analysis.material.Material"><span class="pre">structural_analysis.material.Material</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.FrameElements.element.Element" title="structural_analysis.FrameElements.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.FrameElements.element.Element</span></code></a></p>
+<p>A class to represent a truss element in 2-d space.
+Derived from Element Base class.
+The element has four degrees of freedom,
+two translational degrees of freedom per each node.</p>
+<dl class="simple">
+<dt>local_stiffness_matrix(self) -&gt; np.array:</dt><dd><p>Represents a 2x2 local stiffness matrix in the local element coordinates.</p>
+</dd>
+<dt>element_stiffness_transformation_matrix(self) -&gt; np.ndarray:</dt><dd><p>Represents a 2x4 transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd>
+<dt>degrees_of_freedom(self) -&gt; list[_DegreeOfFreedom]:</dt><dd><p>Returns list of the four degrees of freedom.</p>
+</dd>
+<dt>shape_function_matrix(self, x) -&gt; np.ndarray:</dt><dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.degrees_of_freedom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">degrees_of_freedom</span></span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.degrees_of_freedom" title="Permalink to this definition"></a></dt>
+<dd><p>Returns list of degrees of freedom of start node and end node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.elastic_geometric_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elastic_geometric_matrix</span></span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.elastic_geometric_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>for future use of geometric stiffness matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.element_stiffness_transformation_matrix">
+<span class="sig-name descname"><span class="pre">element_stiffness_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.element_stiffness_transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.local_stiffness_matrix">
+<span class="sig-name descname"><span class="pre">local_stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.local_stiffness_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the local stiffness matrix in the local element coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.shape_function_matrix">
+<span class="sig-name descname"><span class="pre">shape_function_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.shape_function_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.FrameElements.element">
+<span id="structural-analysis-frameelements-element-module"></span><h2>structural_analysis.FrameElements.element module<a class="headerlink" href="#module-structural_analysis.FrameElements.element" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Element (Abstract)</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.FrameElements.element.</span></span><span class="sig-name descname"><span class="pre">Element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.section.Section" title="structural_analysis.section.Section"><span class="pre">structural_analysis.section.Section</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.material.Material" title="structural_analysis.material.Material"><span class="pre">structural_analysis.material.Material</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>An abstract class to represent an element.
+…</p>
+<dl class="simple">
+<dt>id<span class="classifier">int</span></dt><dd><p>unique identifier for the element.</p>
+</dd>
+<dt>start_node<span class="classifier">Node</span></dt><dd><p>start node instance of the element.</p>
+</dd>
+<dt>end_node<span class="classifier">Node</span></dt><dd><p>end node instance of the element.</p>
+</dd>
+<dt>section<span class="classifier">Section</span></dt><dd><p>cross-section of the element</p>
+</dd>
+<dt>_vector: Vector</dt><dd><p>vector instance from start node to end node described in the structure coordinate system</p>
+</dd>
+<dt>length: float</dt><dd><p>length of the element</p>
+</dd>
+<dt>twist_angle: float</dt><dd><p>rotation angle of the element around its local x-axis, in degrees.</p>
+</dd>
+<dt>coordinate_system<span class="classifier">CoordinateSystem</span></dt><dd><p>local coordinate system of the element. The element lies on the x-axis.</p>
+</dd>
+<dt>_structure<span class="classifier">Structure</span></dt><dd><p>structure instance containing the element</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>_geometry_transformation_matrix(self) -&gt; numpy.ndarray:</dt><dd><p>returns a 3x3 transformation matrix from
+local coordinate system to structure coordinate system</p>
+</dd>
+<dt>global_stiffness_matrix(self) -&gt; np.array:</dt><dd><p>returns the element global stiffness matrix in the structure coordinate system</p>
+</dd>
+<dt>local_mesh_coordinates(self) -&gt; np.ndarray:</dt><dd><p>returns a 2-d array of local coordinates of points evenly spaced along element.</p>
+</dd>
+<dt>global_mesh_coordinates(self) -&gt; np.ndarray:</dt><dd><p>transforms local_mesh_coordinates into structure
+coordinate system and returns global coordinates.</p>
+</dd>
+<dt>local_displacement_field(self) -&gt; np.ndarray:</dt><dd><p>returns local displacements of local_mesh_coordinates points.</p>
+</dd>
+<dt>global_displacement_field(self) -&gt; np.ndarray:</dt><dd><p>transforms local_displacement_field into structure
+coordinate system and returns global displacements.</p>
+</dd>
+<dt>global_deformed_position(self, scale) -&gt; np.ndarray:</dt><dd><p>returns global deformed position of an element in structure.
+Sum of global displacement field and global mesh coordinates.</p>
+</dd>
+<dt>local_end_displacement_vector(self) -&gt; np.ndarray:</dt><dd><p>returns displacements and rotations of
+element start and end node after analysis is completed.</p>
+</dd>
+<dt>local_stiffness_matrix(self) -&gt; np.array:</dt><dd><p>abstract method to be implemented be derived classes.
+Represents the local stiffness matrix in the local element coordinates.</p>
+</dd>
+<dt>element_stiffness_transformation_matrix(self) -&gt; np.ndarray:</dt><dd><p>abstract method to be implemented by derived classes.
+Represents the transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd>
+<dt>degrees_of_freedom(self) -&gt; list[_DegreeOfFreedom]:</dt><dd><p>abstract method to be implemented by derived classes.
+Returns list of degrees of freedom of start node and end node degrees of freedom.</p>
+</dd>
+<dt>shape_function_matrix(self, x) -&gt; np.ndarray:</dt><dd><p>abstract method to be implemented by derived classes.
+Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.degrees_of_freedom">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">degrees_of_freedom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="autoapi/structural_analysis/_degree_of_freedom/index.html#structural_analysis._degree_of_freedom._DegreeOfFreedom" title="structural_analysis._degree_of_freedom._DegreeOfFreedom"><span class="pre">structural_analysis._degree_of_freedom._DegreeOfFreedom</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.degrees_of_freedom" title="Permalink to this definition"></a></dt>
+<dd><p>abstract method to be implemented by derived classes.
+Returns list of degrees of freedom of start node and end node degrees of freedom.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.elastic_geometric_matrix">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elastic_geometric_matrix</span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.elastic_geometric_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>for future use of geometric stiffness matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.element_stiffness_transformation_matrix">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">element_stiffness_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.element_stiffness_transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>abstract method to be implemented by derived classes.
+Represents the transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.element_subdivisions">
+<span class="sig-name descname"><span class="pre">element_subdivisions</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.element_subdivisions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.global_deformed_position">
+<span class="sig-name descname"><span class="pre">global_deformed_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.global_deformed_position" title="Permalink to this definition"></a></dt>
+<dd><p>returns global deformed position of an element in structure.
+Sum of global displacement field and global mesh coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.global_displacement_field">
+<span class="sig-name descname"><span class="pre">global_displacement_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.global_displacement_field" title="Permalink to this definition"></a></dt>
+<dd><p>transforms local_displacement_field into structure
+coordinate system and returns global displacements.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.global_mesh_coordinates">
+<span class="sig-name descname"><span class="pre">global_mesh_coordinates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.global_mesh_coordinates" title="Permalink to this definition"></a></dt>
+<dd><p>transforms local_mesh_coordinates into structure
+coordinate system and returns global coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.global_stiffness_matrix">
+<span class="sig-name descname"><span class="pre">global_stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.array</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.global_stiffness_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>returns the element global stiffness matrix in the structure coordinate system</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.local_displacement_field">
+<span class="sig-name descname"><span class="pre">local_displacement_field</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.local_displacement_field" title="Permalink to this definition"></a></dt>
+<dd><p>returns local displacements of local_mesh_coordinates points.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.local_end_displacement_vector">
+<span class="sig-name descname"><span class="pre">local_end_displacement_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.local_end_displacement_vector" title="Permalink to this definition"></a></dt>
+<dd><p>returns displacements and rotations of element start
+and end node after analysis is completed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.local_mesh_coordinates">
+<span class="sig-name descname"><span class="pre">local_mesh_coordinates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.local_mesh_coordinates" title="Permalink to this definition"></a></dt>
+<dd><p>returns a 2-d array of local coordinates of points evenly spaced along element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.local_stiffness_matrix">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">local_stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.array</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.local_stiffness_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>abstract method to be implemented be derived classes.
+Represents the local stiffness matrix in the local element coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.shape_function_matrix">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape_function_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.shape_function_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>abstract method to be implemented by derived classes.
+Returns 3x1 array of local displacements of point ,at position x,
+in the local coordinate system.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.element.Element.structure">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">structure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="autoapi/structural_analysis/index.html#structural_analysis.Structure" title="structural_analysis.Structure"><span class="pre">Structure</span></a></em><a class="headerlink" href="#structural_analysis.FrameElements.element.Element.structure" title="Permalink to this definition"></a></dt>
+<dd><p>structure instance containing the element</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.FrameElements.frame_element">
+<span id="structural-analysis-frameelements-frame-element-module"></span><h2>structural_analysis.FrameElements.frame_element module<a class="headerlink" href="#module-structural_analysis.FrameElements.frame_element" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>FrameElement</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.frame_element.FrameElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.FrameElements.frame_element.</span></span><span class="sig-name descname"><span class="pre">FrameElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.section.Section" title="structural_analysis.section.Section"><span class="pre">structural_analysis.section.Section</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.material.Material" title="structural_analysis.material.Material"><span class="pre">structural_analysis.material.Material</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.frame_element.FrameElement" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.FrameElements.element.Element" title="structural_analysis.FrameElements.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.FrameElements.element.Element</span></code></a></p>
+<p>A class to represent a frame element.
+Derived from Element Base class.
+The element has twelve degrees of freedom, three translational
+and three rotational degrees of freedom per each node.</p>
+<dl class="simple">
+<dt>local_stiffness_matrix(self) -&gt; np.array:</dt><dd><p>Represents a 12x12 local stiffness matrix in the local element coordinates.</p>
+</dd>
+<dt>element_stiffness_transformation_matrix(self) -&gt; np.ndarray:</dt><dd><p>Represents a 12x12 transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd>
+<dt>degrees_of_freedom(self) -&gt; list[_DegreeOfFreedom]:</dt><dd><p>Returns list of the twelve degrees of freedom.</p>
+</dd>
+<dt>shape_function_matrix(self, x) -&gt; np.ndarray:</dt><dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.frame_element.FrameElement.degrees_of_freedom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">degrees_of_freedom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="autoapi/structural_analysis/_degree_of_freedom/index.html#structural_analysis._degree_of_freedom._DegreeOfFreedom" title="structural_analysis._degree_of_freedom._DegreeOfFreedom"><span class="pre">structural_analysis._degree_of_freedom._DegreeOfFreedom</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#structural_analysis.FrameElements.frame_element.FrameElement.degrees_of_freedom" title="Permalink to this definition"></a></dt>
+<dd><p>Returns list of degrees of freedom of start node and end node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.frame_element.FrameElement.elastic_geometric_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elastic_geometric_matrix</span></span><a class="headerlink" href="#structural_analysis.FrameElements.frame_element.FrameElement.elastic_geometric_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>for future use of geometric stiffness matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.frame_element.FrameElement.element_stiffness_transformation_matrix">
+<span class="sig-name descname"><span class="pre">element_stiffness_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.frame_element.FrameElement.element_stiffness_transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.frame_element.FrameElement.local_stiffness_matrix">
+<span class="sig-name descname"><span class="pre">local_stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.frame_element.FrameElement.local_stiffness_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the local stiffness matrix in the local element coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.frame_element.FrameElement.shape_function_matrix">
+<span class="sig-name descname"><span class="pre">shape_function_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.frame_element.FrameElement.shape_function_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.FrameElements.truss_element">
+<span id="structural-analysis-frameelements-truss-element-module"></span><h2>structural_analysis.FrameElements.truss_element module<a class="headerlink" href="#module-structural_analysis.FrameElements.truss_element" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>TrussElement</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.truss_element.TrussElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.FrameElements.truss_element.</span></span><span class="sig-name descname"><span class="pre">TrussElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.node.Node" title="structural_analysis.node.Node"><span class="pre">structural_analysis.node.Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.section.Section" title="structural_analysis.section.Section"><span class="pre">structural_analysis.section.Section</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="structural_analysis.html#structural_analysis.material.Material" title="structural_analysis.material.Material"><span class="pre">structural_analysis.material.Material</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.truss_element.TrussElement" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.FrameElements.element.Element" title="structural_analysis.FrameElements.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.FrameElements.element.Element</span></code></a></p>
+<p>A class to represent a truss element.
+Derived from Element Base class.
+The element has six translational degrees of freedom, three per each node.</p>
+<dl class="simple">
+<dt>local_stiffness_matrix(self) -&gt; np.array:</dt><dd><p>Represents a 2x2 local stiffness matrix in the local element coordinates.</p>
+</dd>
+<dt>element_stiffness_transformation_matrix(self) -&gt; np.ndarray:</dt><dd><p>Represents a 2x6 transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd>
+<dt>degrees_of_freedom(self) -&gt; list[_DegreeOfFreedom]:</dt><dd><p>Returns list of the six degrees of freedom.</p>
+</dd>
+<dt>shape_function_matrix(self, x) -&gt; np.ndarray:</dt><dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.truss_element.TrussElement.degrees_of_freedom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">degrees_of_freedom</span></span><a class="headerlink" href="#structural_analysis.FrameElements.truss_element.TrussElement.degrees_of_freedom" title="Permalink to this definition"></a></dt>
+<dd><p>Returns list of degrees of freedom of start node and end node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.truss_element.TrussElement.elastic_geometric_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elastic_geometric_matrix</span></span><a class="headerlink" href="#structural_analysis.FrameElements.truss_element.TrussElement.elastic_geometric_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>for future use of geometric stiffness matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.truss_element.TrussElement.element_stiffness_transformation_matrix">
+<span class="sig-name descname"><span class="pre">element_stiffness_transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.truss_element.TrussElement.element_stiffness_transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the transformation matrix of local stiffness matrix in
+local element coordinates to structure coordinate system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.truss_element.TrussElement.local_stiffness_matrix">
+<span class="sig-name descname"><span class="pre">local_stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.truss_element.TrussElement.local_stiffness_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Represents the local stiffness matrix in the local element coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.FrameElements.truss_element.TrussElement.shape_function_matrix">
+<span class="sig-name descname"><span class="pre">shape_function_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.FrameElements.truss_element.TrussElement.shape_function_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Returns 3x1 array of local displacements of point,
+at position x, in the local coordinate system.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.FrameElements">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-structural_analysis.FrameElements" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Hazem Kassab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+:py:mod:`structural_analysis._degree_of_freedom`
+================================================
+
+.. py:module:: structural_analysis._degree_of_freedom
+
+.. autoapi-nested-parse::
+
+   Classes:
+       _DegreeOfFreedom
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis._degree_of_freedom.Direction
+   structural_analysis._degree_of_freedom._DegreeOfFreedom
+
+
+
+
+.. py:class:: Direction
+
+   Bases: :py:obj:`enum.Enum`
+
+   Generic enumeration.
+
+   Derive from this class to define new enumerations.
+
+   .. py:attribute:: GLOBAL_X
+      :annotation: = 1
+
+      
+
+   .. py:attribute:: GLOBAL_Y
+      :annotation: = 2
+
+      
+
+   .. py:attribute:: GLOBAL_Z
+      :annotation: = 3
+
+      
+
+   .. py:attribute:: GLOBAL_RX
+      :annotation: = 4
+
+      
+
+   .. py:attribute:: GLOBAL_RY
+      :annotation: = 5
+
+      
+
+   .. py:attribute:: GLOBAL_RZ
+      :annotation: = 6
+
+      
+
+
+.. py:class:: _DegreeOfFreedom(node: structural_analysis.node.Node, direction: Direction)
+
+   A class to represent a degree of freedom.
+   ...
+
+   Attributes
+   ----------
+   direction : Direction
+       direction of the degree of freedom in structure coordinate system
+   node : Node
+       node containing the degree of freedom
+   id : int
+       node identifier unique for the degree of freedom instance
+   displacement : float
+       displacement of the degree of freedom in the respective direction.
+       initial displacement shall be assigned using method assign_initial_displacement.
+   restrained : bool
+       false by default
+   _force : float
+       assigned nodal forces to the degree of freedom instance
+
+
+   Methods
+   -------
+   assign_force(self, value):
+       assigns force to degree of freedom instance in the instance direction
+
+   assign_initial_displacement(self, value):
+       assigns initial displacement to the node in the instance direction
+
+   .. py:attribute:: id
+      :annotation: = 1
+
+      
+
+   .. py:method:: assign_force(self, value: float)
+
+      assign a force to the degree of freedom in its direction.
+
+      Keyword arguments:
+      value -- the magnitude of the force
+
+
+   .. py:method:: assign_initial_displacement(self, value: float)
+
+      Assign an initial displacement boundary condition
+      to the degree of freedom in its direction.
+
+          Keyword arguments:
+          value -- the amount of displacement
+          
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+

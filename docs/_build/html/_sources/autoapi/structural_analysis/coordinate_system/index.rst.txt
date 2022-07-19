@@ -1,0 +1,80 @@
+:py:mod:`structural_analysis.coordinate_system`
+===============================================
+
+.. py:module:: structural_analysis.coordinate_system
+
+.. autoapi-nested-parse::
+
+   Classes:
+       CoordinateSystem
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.coordinate_system.CoordinateSystem
+
+
+
+
+.. py:class:: CoordinateSystem(i_vector: structural_analysis.vector.Vector, twist_angle: float, origin_vector: structural_analysis.vector.Vector)
+
+   A class to represent a cartesian coordinate system.
+   ...
+
+   Attributes
+   ----------
+   _i : structural_analysis.Vector
+       the i component of the coordinate system basis
+
+   _j : structural_analysis.Vector
+       the j component of the coordinate system basis
+
+   _k : structural_analysis.Vector
+       the k component of the coordinate system basis
+
+   basis : numpy.ndarray
+       a 3x3 numpy array holding the basis vectors [i, j, k]
+
+   origin : structural_analysis.Vector
+       the position vector of the origin of the coordinate system
+
+   _global_i_vector:
+       the i base vector described in a global coordinate system
+
+   _global_twist_angle:
+       the rotation angle of the coordinate_system around the i base vector
+
+   Methods
+   -------
+   _get_rotation_matrix_around_vector(angle: float, rotation_axis: Vector) -> np.ndarray:
+       static method, returns a 3x3 rotation matrix around the passed rotation axis vector with angle
+
+   get_coord_transformation_matrix(self, coordinate_system: CoordinateSystem) -> np.ndarray:
+       returns a 3x3 transformation matrix from the calling
+       coordinate system to passed coordinate system instance
+
+   .. py:method:: _get_rotation_matrix_around_vector(rotation_axis: structural_analysis.vector.Vector, angle: float) -> numpy.ndarray
+      :staticmethod:
+
+      returns a 3x3 rotation matrix around the passed rotation axis vector
+      Keyword arguments:
+          rotation_axis -- vector which the rotation is around.
+          angle -- amount of rotation in degrees.
+
+
+   .. py:method:: get_coord_transformation_matrix(self, coordinate_system: CoordinateSystem) -> numpy.ndarray
+
+      returns a 3x3 transformation matrix from the calling
+      coordinate system to passed coordinate system instance
+          Keyword arguments:
+              coordinate_system -- coordinate system which objects will transform to.
+
+
+

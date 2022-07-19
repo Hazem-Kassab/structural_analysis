@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>structural_analysis package &mdash; structural_analysis 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> structural_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">structural_analysis package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.Solver">structural_analysis.Solver module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.Visualization">structural_analysis.Visualization module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.Visualizer">structural_analysis.Visualizer module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.coordinate_system">structural_analysis.coordinate_system module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.material">structural_analysis.material module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.node">structural_analysis.node module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.section">structural_analysis.section module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.structure">structural_analysis.structure module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis.vector">structural_analysis.vector module</a></li>
+<li><a class="reference internal" href="#module-structural_analysis">Module contents</a><ul>
+<li><a class="reference internal" href="#structural_analysis.Solver.analyze_first_order_elastic">analyze_first_order_elastic</a></li>
+<li><a class="reference internal" href="#structural_analysis.Solver.analyze_first_order_inelastic">analyze_first_order_inelastic</a></li>
+<li><a class="reference internal" href="#structural_analysis.Solver.analyze_second_order_elastic">analyze_second_order_elastic</a></li>
+<li><a class="reference internal" href="#structural_analysis.Solver.analyze_second_order_inelastic">analyze_second_order_inelastic</a></li>
+<li><a class="reference internal" href="#structural_analysis.Visualization.execute_qt">execute_qt</a></li>
+<li><a class="reference internal" href="#structural_analysis.Visualization.show_deformed_shape">show_deformed_shape</a></li>
+<li><a class="reference internal" href="#structural_analysis.Visualization.show_structure">show_structure</a></li>
+<li><a class="reference internal" href="#structural_analysis.Visualizer.Visualizer">Visualizer</a><ul>
+<li><a class="reference internal" href="#structural_analysis.Visualizer.Visualizer.execute_qt">execute_qt</a></li>
+<li><a class="reference internal" href="#structural_analysis.Visualizer.Visualizer.show_deformed_shape">show_deformed_shape</a></li>
+<li><a class="reference internal" href="#structural_analysis.Visualizer.Visualizer.show_structure">show_structure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.coordinate_system.CoordinateSystem">CoordinateSystem</a><ul>
+<li><a class="reference internal" href="#structural_analysis.coordinate_system.CoordinateSystem.get_coord_transformation_matrix">get_coord_transformation_matrix</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.material.Concrete">Concrete</a><ul>
+<li><a class="reference internal" href="#structural_analysis.material.Concrete.shear_modulus">shear_modulus</a></li>
+<li><a class="reference internal" href="#structural_analysis.material.Concrete.stress">stress</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.material.Material">Material</a><ul>
+<li><a class="reference internal" href="#structural_analysis.material.Material.shear_modulus">shear_modulus</a></li>
+<li><a class="reference internal" href="#structural_analysis.material.Material.stress">stress</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.material.Steel">Steel</a><ul>
+<li><a class="reference internal" href="#structural_analysis.material.Steel.shear_modulus">shear_modulus</a></li>
+<li><a class="reference internal" href="#structural_analysis.material.Steel.stress">stress</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.node.Node">Node</a><ul>
+<li><a class="reference internal" href="#structural_analysis.node.Node.degrees_of_freedom">degrees_of_freedom</a></li>
+<li><a class="reference internal" href="#structural_analysis.node.Node.structure">structure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.section.ArbitrarySection">ArbitrarySection</a><ul>
+<li><a class="reference internal" href="#structural_analysis.section.ArbitrarySection.area">area</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.ArbitrarySection.inertia_y">inertia_y</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.ArbitrarySection.inertia_z">inertia_z</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.ArbitrarySection.polar_inertia">polar_inertia</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.ArbitrarySection.warping_rigidity">warping_rigidity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.section.Circle">Circle</a><ul>
+<li><a class="reference internal" href="#structural_analysis.section.Circle.area">area</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Circle.inertia_y">inertia_y</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Circle.inertia_z">inertia_z</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Circle.polar_inertia">polar_inertia</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Circle.warping_rigidity">warping_rigidity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.section.Rectangle">Rectangle</a><ul>
+<li><a class="reference internal" href="#structural_analysis.section.Rectangle.area">area</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Rectangle.inertia_y">inertia_y</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Rectangle.inertia_z">inertia_z</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Rectangle.polar_inertia">polar_inertia</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Rectangle.warping_rigidity">warping_rigidity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.section.Section">Section</a><ul>
+<li><a class="reference internal" href="#structural_analysis.section.Section.area">area</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Section.inertia_y">inertia_y</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Section.inertia_z">inertia_z</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Section.polar_inertia">polar_inertia</a></li>
+<li><a class="reference internal" href="#structural_analysis.section.Section.warping_rigidity">warping_rigidity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structural_analysis.structure.Structure">Structure</a></li>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector">Vector</a><ul>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector.coordinate_system">coordinate_system</a></li>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector.magnitude">magnitude</a></li>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector.normalized">normalized</a></li>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector.project_vector_on_plane">project_vector_on_plane</a></li>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector.project_vector_on_vector">project_vector_on_vector</a></li>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector.project_vector_on_vector_scaler">project_vector_on_vector_scaler</a></li>
+<li><a class="reference internal" href="#structural_analysis.vector.Vector.transform_vector">transform_vector</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">structural_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>structural_analysis package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/structural_analysis.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="structural-analysis-package">
+<h1>structural_analysis package<a class="headerlink" href="#structural-analysis-package" title="Permalink to this headline"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structural_analysis.FrameElements.html">structural_analysis.FrameElements package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.FrameElements.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.FrameElements.html#module-structural_analysis.FrameElements.TwoDimensionalFrameElement">structural_analysis.FrameElements.TwoDimensionalFrameElement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.FrameElements.html#module-structural_analysis.FrameElements.TwoDimensionalTrussElement">structural_analysis.FrameElements.TwoDimensionalTrussElement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.FrameElements.html#module-structural_analysis.FrameElements.element">structural_analysis.FrameElements.element module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.FrameElements.html#module-structural_analysis.FrameElements.frame_element">structural_analysis.FrameElements.frame_element module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.FrameElements.html#module-structural_analysis.FrameElements.truss_element">structural_analysis.FrameElements.truss_element module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.FrameElements.html#module-structural_analysis.FrameElements">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement">TwoDimensionalFrameElement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalFrameElement.TwoDimensionalFrameElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement">TwoDimensionalTrussElement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.TwoDimensionalTrussElement.TwoDimensionalTrussElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element">Element</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.degrees_of_freedom">degrees_of_freedom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.element_subdivisions">element_subdivisions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.global_deformed_position">global_deformed_position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.global_displacement_field">global_displacement_field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.global_mesh_coordinates">global_mesh_coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.global_stiffness_matrix">global_stiffness_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.id">id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.local_displacement_field">local_displacement_field</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.local_end_displacement_vector">local_end_displacement_vector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.local_mesh_coordinates">local_mesh_coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.shape_function_matrix">shape_function_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element.structure">structure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.frame_element.FrameElement">FrameElement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.frame_element.FrameElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.frame_element.FrameElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.frame_element.FrameElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.frame_element.FrameElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.frame_element.FrameElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.truss_element.TrussElement">TrussElement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.truss_element.TrussElement.degrees_of_freedom">degrees_of_freedom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.truss_element.TrussElement.elastic_geometric_matrix">elastic_geometric_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.truss_element.TrussElement.element_stiffness_transformation_matrix">element_stiffness_transformation_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.truss_element.TrussElement.local_stiffness_matrix">local_stiffness_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.truss_element.TrussElement.shape_function_matrix">shape_function_matrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-structural_analysis.Solver">
+<span id="structural-analysis-solver-module"></span><h2>structural_analysis.Solver module<a class="headerlink" href="#module-structural_analysis.Solver" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="structural_analysis.Solver.analyze_first_order_elastic">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.Solver.</span></span><span class="sig-name descname"><span class="pre">analyze_first_order_elastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Solver.analyze_first_order_elastic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="structural_analysis.Solver.analyze_first_order_inelastic">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.Solver.</span></span><span class="sig-name descname"><span class="pre">analyze_first_order_inelastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Solver.analyze_first_order_inelastic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="structural_analysis.Solver.analyze_second_order_elastic">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.Solver.</span></span><span class="sig-name descname"><span class="pre">analyze_second_order_elastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Solver.analyze_second_order_elastic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="structural_analysis.Solver.analyze_second_order_inelastic">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.Solver.</span></span><span class="sig-name descname"><span class="pre">analyze_second_order_inelastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Solver.analyze_second_order_inelastic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-structural_analysis.Visualization">
+<span id="structural-analysis-visualization-module"></span><h2>structural_analysis.Visualization module<a class="headerlink" href="#module-structural_analysis.Visualization" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="structural_analysis.Visualization.execute_qt">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.Visualization.</span></span><span class="sig-name descname"><span class="pre">execute_qt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Visualization.execute_qt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="structural_analysis.Visualization.show_deformed_shape">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.Visualization.</span></span><span class="sig-name descname"><span class="pre">show_deformed_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_stations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Visualization.show_deformed_shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="structural_analysis.Visualization.show_structure">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.Visualization.</span></span><span class="sig-name descname"><span class="pre">show_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Visualization.show_structure" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-structural_analysis.Visualizer">
+<span id="structural-analysis-visualizer-module"></span><h2>structural_analysis.Visualizer module<a class="headerlink" href="#module-structural_analysis.Visualizer" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.Visualizer.Visualizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.Visualizer.</span></span><span class="sig-name descname"><span class="pre">Visualizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Visualizer.Visualizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.Visualizer.Visualizer.execute_qt">
+<span class="sig-name descname"><span class="pre">execute_qt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Visualizer.Visualizer.execute_qt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.Visualizer.Visualizer.show_deformed_shape">
+<span class="sig-name descname"><span class="pre">show_deformed_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Visualizer.Visualizer.show_deformed_shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.Visualizer.Visualizer.show_structure">
+<span class="sig-name descname"><span class="pre">show_structure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.Visualizer.Visualizer.show_structure" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.coordinate_system">
+<span id="structural-analysis-coordinate-system-module"></span><h2>structural_analysis.coordinate_system module<a class="headerlink" href="#module-structural_analysis.coordinate_system" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>CoordinateSystem</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.coordinate_system.CoordinateSystem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.coordinate_system.</span></span><span class="sig-name descname"><span class="pre">CoordinateSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">twist_angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.coordinate_system.CoordinateSystem" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a cartesian coordinate system.
+…</p>
+<dl class="simple">
+<dt>_i<span class="classifier">structural_analysis.Vector</span></dt><dd><p>the i component of the coordinate system basis</p>
+</dd>
+<dt>_j<span class="classifier">structural_analysis.Vector</span></dt><dd><p>the j component of the coordinate system basis</p>
+</dd>
+<dt>_k<span class="classifier">structural_analysis.Vector</span></dt><dd><p>the k component of the coordinate system basis</p>
+</dd>
+<dt>basis<span class="classifier">numpy.ndarray</span></dt><dd><p>a 3x3 numpy array holding the basis vectors [i, j, k]</p>
+</dd>
+<dt>origin<span class="classifier">structural_analysis.Vector</span></dt><dd><p>the position vector of the origin of the coordinate system</p>
+</dd>
+<dt>_global_i_vector:</dt><dd><p>the i base vector described in a global coordinate system</p>
+</dd>
+<dt>_global_twist_angle:</dt><dd><p>the rotation angle of the coordinate_system around the i base vector</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>_get_rotation_matrix_around_vector(angle: float, rotation_axis: Vector) -&gt; np.ndarray:</dt><dd><p>static method, returns a 3x3 rotation matrix around the passed rotation axis vector with angle</p>
+</dd>
+<dt>get_coord_transformation_matrix(self, coordinate_system: CoordinateSystem) -&gt; np.ndarray:</dt><dd><p>returns a 3x3 transformation matrix from the calling
+coordinate system to passed coordinate system instance</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.coordinate_system.CoordinateSystem.get_coord_transformation_matrix">
+<span class="sig-name descname"><span class="pre">get_coord_transformation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.coordinate_system.CoordinateSystem" title="structural_analysis.coordinate_system.CoordinateSystem"><span class="pre">structural_analysis.coordinate_system.CoordinateSystem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#structural_analysis.coordinate_system.CoordinateSystem.get_coord_transformation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>returns a 3x3 transformation matrix from the calling
+coordinate system to passed coordinate system instance</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keyword arguments:</dt><dd><p>coordinate_system – coordinate system which objects will transform to.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.material">
+<span id="structural-analysis-material-module"></span><h2>structural_analysis.material module<a class="headerlink" href="#module-structural_analysis.material" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Material
+Steel
+Concrete</p>
+</dd>
+</dl>
+<p>Material is an abstract class.
+Other classes are derived from Material class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.material.Concrete">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.material.</span></span><span class="sig-name descname"><span class="pre">Concrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elasticity_modulus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poissons_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yield_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">characteristic_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.material.Concrete" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.material.Material" title="structural_analysis.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.material.Material</span></code></a></p>
+<p>A class to represent concrete material instance assigned to an element.
+…</p>
+<dl class="simple">
+<dt>elasticity_modulus<span class="classifier">float</span></dt><dd><p>Modulus of elasticity concrete usually around 20 GPa</p>
+</dd>
+<dt>poissons_ratio<span class="classifier">float</span></dt><dd><p>Poisson’s ratio of concrete usually around 0.2</p>
+</dd>
+<dt>yield_strength<span class="classifier">float</span></dt><dd><p>Yield strength of concrete at 0.2% offset in stress-strain diagram.</p>
+</dd>
+<dt>characteristic_strength<span class="classifier">float</span></dt><dd><p>characteristic strength of concrete.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.material.Concrete.shear_modulus">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus</span></span><a class="headerlink" href="#structural_analysis.material.Concrete.shear_modulus" title="Permalink to this definition"></a></dt>
+<dd><p>shear modulus of concrete</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.material.Concrete.stress">
+<span class="sig-name descname"><span class="pre">stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.material.Concrete.stress" title="Permalink to this definition"></a></dt>
+<dd><p>describes the constitutive relationship.
+returns stress value on a given strain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.material.Material">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.material.</span></span><span class="sig-name descname"><span class="pre">Material</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elasticity_modulus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poissons_ratio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.material.Material" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An abstract class to represent material instance assigned to an element.
+…</p>
+<dl class="simple">
+<dt>elasticity_modulus<span class="classifier">float</span></dt><dd><p>Modulus of elasticity of the material</p>
+</dd>
+<dt>poissons_ratio<span class="classifier">float</span></dt><dd><p>Poisson’s ratio of the material</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>stress(self, strain):</dt><dd><p>abstract method, implemented by derived classes.
+describes the constitutive relationship.
+returns stress value on a given strain.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.material.Material.shear_modulus">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus</span></span><a class="headerlink" href="#structural_analysis.material.Material.shear_modulus" title="Permalink to this definition"></a></dt>
+<dd><p>abstract method, implemented by derived classes.
+Represents shear modulus of material.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.material.Material.stress">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.material.Material.stress" title="Permalink to this definition"></a></dt>
+<dd><p>abstract method, implemented by derived classes.
+describes the constitutive relationship.
+returns stress value on a given strain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.material.Steel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.material.</span></span><span class="sig-name descname"><span class="pre">Steel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elasticity_modulus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poissons_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yield_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ultimate_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.material.Steel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.material.Material" title="structural_analysis.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.material.Material</span></code></a></p>
+<p>A class to represent steel material instance assigned to an element.
+…</p>
+<dl class="simple">
+<dt>elasticity_modulus<span class="classifier">float</span></dt><dd><p>Modulus of elasticity of steel usually around 200 GPa</p>
+</dd>
+<dt>poissons_ratio<span class="classifier">float</span></dt><dd><p>Poisson’s ratio of steel usually around 0.3</p>
+</dd>
+<dt>yield_strength<span class="classifier">float</span></dt><dd><p>Yield strength of steel</p>
+</dd>
+<dt>ultimate_strength<span class="classifier">float</span></dt><dd><p>ultimate strength of steel</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.material.Steel.shear_modulus">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus</span></span><a class="headerlink" href="#structural_analysis.material.Steel.shear_modulus" title="Permalink to this definition"></a></dt>
+<dd><p>shear modulus of steel usually around 79.3 GPa</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.material.Steel.stress">
+<span class="sig-name descname"><span class="pre">stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.material.Steel.stress" title="Permalink to this definition"></a></dt>
+<dd><p>describes the constitutive relationship.
+returns stress value on a given strain.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.node">
+<span id="structural-analysis-node-module"></span><h2>structural_analysis.node module<a class="headerlink" href="#module-structural_analysis.node" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Node</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.node.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.node.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.node.Node" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a node.
+…</p>
+<dl class="simple">
+<dt>x<span class="classifier">float</span></dt><dd><p>x coordinate of the node in the structure coordinate system</p>
+</dd>
+<dt>y<span class="classifier">float</span></dt><dd><p>y coordinate of the node in the structure coordinate system</p>
+</dd>
+<dt>z<span class="classifier">float</span></dt><dd><p>z coordinate of the node in the structure coordinate system</p>
+</dd>
+<dt>_structure<span class="classifier">Structure</span></dt><dd><p>structure instance containing the node</p>
+</dd>
+<dt>position_vector<span class="classifier">Vector</span></dt><dd><p>position vector instance holding x, y, and z coordinates of the node instance</p>
+</dd>
+<dt>dof_x<span class="classifier">_DegreeOfFreedom</span></dt><dd><p>translational degree of freedom instance in
+the x-axis direction of the structure coordinate system</p>
+</dd>
+<dt>dof_y<span class="classifier">_DegreeOfFreedom</span></dt><dd><p>translational degree of freedom instance in
+the y-axis direction of the structure coordinate system</p>
+</dd>
+<dt>dof_z<span class="classifier">_DegreeOfFreedom</span></dt><dd><p>translational degree of freedom instance in
+the z-axis direction of the structure coordinate system</p>
+</dd>
+<dt>dof_rx<span class="classifier">_DegreeOfFreedom</span></dt><dd><p>rotational degree of freedom instance around
+the x-axis of the structure coordinate system</p>
+</dd>
+<dt>dof_ry<span class="classifier">_DegreeOfFreedom</span></dt><dd><p>rotational degree of freedom instance around
+the y-axis of the structure coordinate system</p>
+</dd>
+<dt>dof_rz<span class="classifier">_DegreeOfFreedom</span></dt><dd><p>rotational degree of freedom instance around
+the z-axis of the structure coordinate system</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.node.Node.degrees_of_freedom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">degrees_of_freedom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="autoapi/structural_analysis/_degree_of_freedom/index.html#structural_analysis._degree_of_freedom._DegreeOfFreedom" title="structural_analysis._degree_of_freedom._DegreeOfFreedom"><span class="pre">structural_analysis._degree_of_freedom._DegreeOfFreedom</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#structural_analysis.node.Node.degrees_of_freedom" title="Permalink to this definition"></a></dt>
+<dd><p>returns a list holding the six degrees of freedom instances of the node</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.node.Node.structure">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">structure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="autoapi/structural_analysis/index.html#structural_analysis.Structure" title="structural_analysis.Structure"><span class="pre">Structure</span></a></em><a class="headerlink" href="#structural_analysis.node.Node.structure" title="Permalink to this definition"></a></dt>
+<dd><p>structure containing the node instance</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.section">
+<span id="structural-analysis-section-module"></span><h2>structural_analysis.section module<a class="headerlink" href="#module-structural_analysis.section" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Section
+Circle
+Rectangle
+ArbitrarySection</p>
+</dd>
+</dl>
+<p>Section class is an abstract class.
+Other classes are derived from Section.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.section.ArbitrarySection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.section.</span></span><span class="sig-name descname"><span class="pre">ArbitrarySection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inertia_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inertia_z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polar_inertia</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warping_rigidity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.section.ArbitrarySection" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.section.Section" title="structural_analysis.section.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.section.Section</span></code></a></p>
+<p>A class to represent an arbitrary shaped section with user-defined geometric properties
+which will be assigned to element objects.
+…</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.ArbitrarySection.area">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">area</span></span><a class="headerlink" href="#structural_analysis.section.ArbitrarySection.area" title="Permalink to this definition"></a></dt>
+<dd><p>area of the cross-section</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.ArbitrarySection.inertia_y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_y</span></span><a class="headerlink" href="#structural_analysis.section.ArbitrarySection.inertia_y" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element y-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.ArbitrarySection.inertia_z">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_z</span></span><a class="headerlink" href="#structural_analysis.section.ArbitrarySection.inertia_z" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element z-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.ArbitrarySection.polar_inertia">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">polar_inertia</span></span><a class="headerlink" href="#structural_analysis.section.ArbitrarySection.polar_inertia" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element x-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.ArbitrarySection.warping_rigidity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">warping_rigidity</span></span><a class="headerlink" href="#structural_analysis.section.ArbitrarySection.warping_rigidity" title="Permalink to this definition"></a></dt>
+<dd><p>warping rigidity of the cross-section</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.section.Circle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.section.</span></span><span class="sig-name descname"><span class="pre">Circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.section.Circle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.section.Section" title="structural_analysis.section.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.section.Section</span></code></a></p>
+<p>A class to represent a circular section which will be assigned to element objects.
+…</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Circle.area">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">area</span></span><a class="headerlink" href="#structural_analysis.section.Circle.area" title="Permalink to this definition"></a></dt>
+<dd><p>area of the cross-section</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Circle.inertia_y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_y</span></span><a class="headerlink" href="#structural_analysis.section.Circle.inertia_y" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element y-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Circle.inertia_z">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_z</span></span><a class="headerlink" href="#structural_analysis.section.Circle.inertia_z" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element z-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Circle.polar_inertia">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">polar_inertia</span></span><a class="headerlink" href="#structural_analysis.section.Circle.polar_inertia" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element x-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Circle.warping_rigidity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">warping_rigidity</span></span><a class="headerlink" href="#structural_analysis.section.Circle.warping_rigidity" title="Permalink to this definition"></a></dt>
+<dd><p>zero for circular cross-sections</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.section.Rectangle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.section.</span></span><span class="sig-name descname"><span class="pre">Rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">breadth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.section.Rectangle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#structural_analysis.section.Section" title="structural_analysis.section.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_analysis.section.Section</span></code></a></p>
+<p>A class to represent a rectangular section which will be assigned to element objects.
+…</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Rectangle.area">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">area</span></span><a class="headerlink" href="#structural_analysis.section.Rectangle.area" title="Permalink to this definition"></a></dt>
+<dd><p>area of the cross-section</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Rectangle.inertia_y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_y</span></span><a class="headerlink" href="#structural_analysis.section.Rectangle.inertia_y" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element y-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Rectangle.inertia_z">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_z</span></span><a class="headerlink" href="#structural_analysis.section.Rectangle.inertia_z" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element z-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Rectangle.polar_inertia">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">polar_inertia</span></span><a class="headerlink" href="#structural_analysis.section.Rectangle.polar_inertia" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element x-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Rectangle.warping_rigidity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">warping_rigidity</span></span><a class="headerlink" href="#structural_analysis.section.Rectangle.warping_rigidity" title="Permalink to this definition"></a></dt>
+<dd><p>warping rigidity of the cross-section</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.section.Section">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.section.</span></span><span class="sig-name descname"><span class="pre">Section</span></span><a class="headerlink" href="#structural_analysis.section.Section" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An abstract class to represent a section which will be assigned to element objects.
+…</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Section.area">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">area</span></span><a class="headerlink" href="#structural_analysis.section.Section.area" title="Permalink to this definition"></a></dt>
+<dd><p>area of the cross-section</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Section.inertia_y">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_y</span></span><a class="headerlink" href="#structural_analysis.section.Section.inertia_y" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element y-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Section.inertia_z">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inertia_z</span></span><a class="headerlink" href="#structural_analysis.section.Section.inertia_z" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element z-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Section.polar_inertia">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">polar_inertia</span></span><a class="headerlink" href="#structural_analysis.section.Section.polar_inertia" title="Permalink to this definition"></a></dt>
+<dd><p>inertia of the cross-section around the element x-axis</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.section.Section.warping_rigidity">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">warping_rigidity</span></span><a class="headerlink" href="#structural_analysis.section.Section.warping_rigidity" title="Permalink to this definition"></a></dt>
+<dd><p>warping rigidity of the cross-section</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.structure">
+<span id="structural-analysis-structure-module"></span><h2>structural_analysis.structure module<a class="headerlink" href="#module-structural_analysis.structure" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Structure</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.structure.Structure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.structure.</span></span><span class="sig-name descname"><span class="pre">Structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="structural_analysis.FrameElements.html#structural_analysis.FrameElements.element.Element" title="structural_analysis.FrameElements.element.Element"><span class="pre">structural_analysis.FrameElements.element.Element</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.structure.Structure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a structure of elements.
+…</p>
+<dl class="simple">
+<dt>elements<span class="classifier">list[Element]</span></dt><dd><p>list of element instances in the structure</p>
+</dd>
+<dt>nodes<span class="classifier">list[Node]</span></dt><dd><p>list of node instances in the structure</p>
+</dd>
+<dt>degrees_of_freedom<span class="classifier">list[_DegreeOfFreedom]</span></dt><dd><p>list of structure degrees of freedom</p>
+</dd>
+<dt>free_degrees_of_freedom<span class="classifier">list[_DegreeOfFreedom]</span></dt><dd><p>list of all unrestrained degrees of freedom instances in the structure</p>
+</dd>
+<dt>restrained_degrees_of_freedom<span class="classifier">list[_DegreeOfFreedom]</span></dt><dd><p>list of all restrained degrees of freedom instances in the structure</p>
+</dd>
+<dt>coordinate_system<span class="classifier">CoordinateSystem</span></dt><dd><p>global coordinate system in which the structure is defined.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>_get_nodes_and_dofs(self) -&gt; tuple[[Node], [_DegreeOfFreedom]]</dt><dd><p>returns a tuple of all nodes and degrees of freedom in structure.</p>
+</dd>
+<dt>_get_free_and_restrained_dofs(self):</dt><dd><p>returns a tuple of all free and restrained degrees of freedom in structure.</p>
+</dd>
+<dt>_assign_structure_to_nodes(self):</dt><dd><p>assigns structure instance to node structure attribute</p>
+</dd>
+<dt>_assign_structure_to_elements(self):</dt><dd><p>assigns structure instance to element structure attribute</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis.vector">
+<span id="structural-analysis-vector-module"></span><h2>structural_analysis.vector module<a class="headerlink" href="#module-structural_analysis.vector" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Vector</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.vector.</span></span><span class="sig-name descname"><span class="pre">Vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.vector.Vector" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p>
+<p>A class to represent a vector.
+…</p>
+<dl class="simple">
+<dt>array<span class="classifier">list[float]</span></dt><dd><p>list of size 3 holding i, j, k values of the vector instance</p>
+</dd>
+<dt>_coordinate_system<span class="classifier">CoordinateSystem</span></dt><dd><p>coordinate system used to describe vector components (i, j, k)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>transform_vector(coordinate_system: CoordinateSystem):</dt><dd><p>returns a new transformed vector instance in the new coordinate system</p>
+</dd>
+<dt>magnitude:</dt><dd><p>returns the magnitude of the vector</p>
+</dd>
+<dt>normalized:</dt><dd><p>returns a new normalized vector instance</p>
+</dd>
+<dt>project_vector_on_vector(vector: Vector):</dt><dd><p>returns a new vector instance projected on the passed vector instance</p>
+</dd>
+<dt>project_vector_on_vector_scaler(vector: Vector):</dt><dd><p>returns a signed magnitude of vector projected on the passed vector instance</p>
+</dd>
+<dt>project_vector_on_plane(vector: Vector):</dt><dd><p>returns a new vector instance projected on a plane having the passed normal vector instance</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.coordinate_system">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coordinate_system</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#structural_analysis.coordinate_system.CoordinateSystem" title="structural_analysis.coordinate_system.CoordinateSystem"><span class="pre">CoordinateSystem</span></a></em><a class="headerlink" href="#structural_analysis.vector.Vector.coordinate_system" title="Permalink to this definition"></a></dt>
+<dd><p>coordinate system used to describe vector components (i, j, k)</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.magnitude">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">magnitude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#structural_analysis.vector.Vector.magnitude" title="Permalink to this definition"></a></dt>
+<dd><p>returns the magnitude of the vector.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.normalized">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></em><a class="headerlink" href="#structural_analysis.vector.Vector.normalized" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new normalized vector instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.project_vector_on_plane">
+<span class="sig-name descname"><span class="pre">project_vector_on_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plane_normal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.project_vector_on_plane" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new vector instance projected on
+a plane having the passed normal vector instance</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keyword arguments:</dt><dd><p>plane_normal – a vector normal to plane.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.project_vector_on_vector">
+<span class="sig-name descname"><span class="pre">project_vector_on_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.project_vector_on_vector" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new vector instance projected on the passed vector instance
+Keyword arguments:</p>
+<blockquote>
+<div><p>vector – a vector instance to project on.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.project_vector_on_vector_scaler">
+<span class="sig-name descname"><span class="pre">project_vector_on_vector_scaler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">structural_analysis.vector.Vector</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.vector.Vector.project_vector_on_vector_scaler" title="Permalink to this definition"></a></dt>
+<dd><p>returns a signed magnitude of vector projected on the passed vector instance
+Keyword arguments:</p>
+<blockquote>
+<div><p>vector – a vector instance to project on.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.vector.Vector.transform_vector">
+<span class="sig-name descname"><span class="pre">transform_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#structural_analysis.coordinate_system.CoordinateSystem" title="structural_analysis.coordinate_system.CoordinateSystem"><span class="pre">CoordinateSystem</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#structural_analysis.vector.Vector" title="structural_analysis.vector.Vector"><span class="pre">Vector</span></a></span></span><a class="headerlink" href="#structural_analysis.vector.Vector.transform_vector" title="Permalink to this definition"></a></dt>
+<dd><p>returns a new transformed vector instance in the new coordinate system.</p>
+<p>Keyword arguments:
+coordinate_system – the coordinate system which the vector transforms to.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-structural_analysis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-structural_analysis" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Hazem Kassab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

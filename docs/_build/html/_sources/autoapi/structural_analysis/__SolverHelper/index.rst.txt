@@ -1,0 +1,40 @@
+:py:mod:`structural_analysis.__SolverHelper`
+============================================
+
+.. py:module:: structural_analysis.__SolverHelper
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.__SolverHelper.Solver
+
+
+
+
+.. py:class:: Solver(structure: structural_analysis.structure.Structure)
+
+   .. py:method:: _assemble_global_stiffness_elastic_matrix(self)
+
+
+   .. py:method:: _assemble_restrained_displacement_vector(self)
+
+
+   .. py:method:: _assemble_force_vector(self)
+
+
+   .. py:method:: _solve_for_unknown_displacements(self, ff_matrix, fs_matrix, force_vector, restrained_displacments_vector)
+
+
+   .. py:method:: _solve_for_unknown_reactions(self, sf_matrix, ss_matrix, solved_displacements_vector, restrained_displacements_vector)
+
+
+   .. py:method:: run(self)
+
+
+

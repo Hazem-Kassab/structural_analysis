@@ -1,0 +1,42 @@
+:py:mod:`structural_analysis.Solver`
+====================================
+
+.. py:module:: structural_analysis.Solver
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.Solver.analyze_first_order_elastic
+   structural_analysis.Solver.analyze_second_order_elastic
+   structural_analysis.Solver.analyze_first_order_inelastic
+   structural_analysis.Solver.analyze_second_order_inelastic
+   structural_analysis.Solver.__print_input_to_txt
+   structural_analysis.Solver.__print_results_to_txt
+
+
+
+.. py:function:: analyze_first_order_elastic(structure: structural_analysis.Structure)
+
+
+.. py:function:: analyze_second_order_elastic(structure: structural_analysis.Structure)
+
+
+.. py:function:: analyze_first_order_inelastic(structure: structural_analysis.Structure)
+
+
+.. py:function:: analyze_second_order_inelastic(structure: structural_analysis.Structure)
+
+
+.. py:function:: __print_input_to_txt(structure: structural_analysis.Structure)
+
+
+.. py:function:: __print_results_to_txt(structure: structural_analysis.Structure)
+
+

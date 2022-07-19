@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>structural_analysis.__main__ &mdash; structural_analysis 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="structural_analysis._degree_of_freedom" href="../_degree_of_freedom/index.html" />
+    <link rel="prev" title="structural_analysis.__SolverHelper" href="../__SolverHelper/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> structural_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Solver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Solver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualization/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualization</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__SolverHelper/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__SolverHelper</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_degree_of_freedom/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis._degree_of_freedom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../coordinate_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.coordinate_system</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.material</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../node/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.node</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../section/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.section</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.structure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.vector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">structural_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__main__</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/structural_analysis/__main__/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-structural_analysis.__main__">
+<span id="structural-analysis-main"></span><h1><a class="reference internal" href="#module-structural_analysis.__main__" title="structural_analysis.__main__"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__main__</span></code></a><a class="headerlink" href="#module-structural_analysis.__main__" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n1">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n1</span></span><a class="headerlink" href="#structural_analysis.__main__.n1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n2">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n2</span></span><a class="headerlink" href="#structural_analysis.__main__.n2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n3">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n3</span></span><a class="headerlink" href="#structural_analysis.__main__.n3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n4">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n4</span></span><a class="headerlink" href="#structural_analysis.__main__.n4" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n5">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n5</span></span><a class="headerlink" href="#structural_analysis.__main__.n5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n6">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n6</span></span><a class="headerlink" href="#structural_analysis.__main__.n6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n7">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n7</span></span><a class="headerlink" href="#structural_analysis.__main__.n7" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n8">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n8</span></span><a class="headerlink" href="#structural_analysis.__main__.n8" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n9">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n9</span></span><a class="headerlink" href="#structural_analysis.__main__.n9" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n10">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n10</span></span><a class="headerlink" href="#structural_analysis.__main__.n10" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n11">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n11</span></span><a class="headerlink" href="#structural_analysis.__main__.n11" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.n12">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">n12</span></span><a class="headerlink" href="#structural_analysis.__main__.n12" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.section">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">section</span></span><a class="headerlink" href="#structural_analysis.__main__.section" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.steel">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">steel</span></span><a class="headerlink" href="#structural_analysis.__main__.steel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e15">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e15</span></span><a class="headerlink" href="#structural_analysis.__main__.e15" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e26">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e26</span></span><a class="headerlink" href="#structural_analysis.__main__.e26" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e37">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e37</span></span><a class="headerlink" href="#structural_analysis.__main__.e37" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e48">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e48</span></span><a class="headerlink" href="#structural_analysis.__main__.e48" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e56">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e56</span></span><a class="headerlink" href="#structural_analysis.__main__.e56" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e68">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e68</span></span><a class="headerlink" href="#structural_analysis.__main__.e68" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e87">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e87</span></span><a class="headerlink" href="#structural_analysis.__main__.e87" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e57">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e57</span></span><a class="headerlink" href="#structural_analysis.__main__.e57" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e59">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e59</span></span><a class="headerlink" href="#structural_analysis.__main__.e59" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e610">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e610</span></span><a class="headerlink" href="#structural_analysis.__main__.e610" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e711">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e711</span></span><a class="headerlink" href="#structural_analysis.__main__.e711" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e812">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e812</span></span><a class="headerlink" href="#structural_analysis.__main__.e812" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e910">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e910</span></span><a class="headerlink" href="#structural_analysis.__main__.e910" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e1112">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e1112</span></span><a class="headerlink" href="#structural_analysis.__main__.e1112" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e911">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e911</span></span><a class="headerlink" href="#structural_analysis.__main__.e911" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.e1012">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">e1012</span></span><a class="headerlink" href="#structural_analysis.__main__.e1012" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.restrained">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#structural_analysis.__main__.restrained" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id2" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id3" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id4" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id7" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id8" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id9" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id10" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id11" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id12" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id13" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id14" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id15" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id16" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id17" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id18" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">restrained</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#id19" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.assign_initial_displacement">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">assign_initial_displacement</span></span><a class="headerlink" href="#structural_analysis.__main__.assign_initial_displacement" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__._force">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">_force</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">2000000</span></em><a class="headerlink" href="#structural_analysis.__main__._force" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">_force</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">4000000</span></em><a class="headerlink" href="#id20" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="structural_analysis.__main__.structure">
+<span class="sig-prename descclassname"><span class="pre">structural_analysis.__main__.</span></span><span class="sig-name descname"><span class="pre">structure</span></span><a class="headerlink" href="#structural_analysis.__main__.structure" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../__SolverHelper/index.html" class="btn btn-neutral float-left" title="structural_analysis.__SolverHelper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../_degree_of_freedom/index.html" class="btn btn-neutral float-right" title="structural_analysis._degree_of_freedom" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Hazem Kassab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

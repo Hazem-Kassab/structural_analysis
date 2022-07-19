@@ -1,0 +1,254 @@
+:py:mod:`structural_analysis.FrameElements`
+===========================================
+
+.. py:module:: structural_analysis.FrameElements
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   TwoDimensionalFrameElement/index.rst
+   TwoDimensionalTrussElement/index.rst
+   element/index.rst
+   frame_element/index.rst
+   truss_element/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.FrameElements.TwoDimensionalTrussElement
+   structural_analysis.FrameElements.TwoDimensionalFrameElement
+   structural_analysis.FrameElements.TrussElement
+   structural_analysis.FrameElements.FrameElement
+
+
+
+
+.. py:class:: TwoDimensionalTrussElement(start_node: structural_analysis.node.Node, end_node: structural_analysis.node.Node, section: structural_analysis.section.Section, material: structural_analysis.material.Material, beta_angle=0)
+
+   Bases: :py:obj:`structural_analysis.FrameElements.element.Element`
+
+   A class to represent a truss element in 2-d space.
+   Derived from Element Base class.
+   The element has four degrees of freedom,
+   two translational degrees of freedom per each node.
+
+   Methods
+   -------
+   local_stiffness_matrix(self) -> np.array:
+       Represents a 2x2 local stiffness matrix in the local element coordinates.
+
+   element_stiffness_transformation_matrix(self) -> np.ndarray:
+       Represents a 2x4 transformation matrix of local stiffness matrix in
+       local element coordinates to structure coordinate system.
+
+   degrees_of_freedom(self) -> list[_DegreeOfFreedom]:
+       Returns list of the four degrees of freedom.
+
+   shape_function_matrix(self, x) -> np.ndarray:
+       Returns 3x1 array of local displacements of point,
+       at position x, in the local coordinate system.
+
+   .. py:method:: local_stiffness_matrix(self)
+
+      Represents the local stiffness matrix in the local element coordinates.
+
+
+   .. py:method:: element_stiffness_transformation_matrix(self)
+
+      Represents the transformation matrix of local stiffness matrix in
+      local element coordinates to structure coordinate system.
+
+
+   .. py:method:: shape_function_matrix(self, x)
+
+      Returns 3x1 array of local displacements of point,
+      at position x, in the local coordinate system.
+
+
+   .. py:method:: degrees_of_freedom(self)
+      :property:
+
+      Returns list of degrees of freedom of start node and end node.
+
+
+   .. py:method:: elastic_geometric_matrix(self)
+      :property:
+
+      for future use of geometric stiffness matrix
+
+
+
+.. py:class:: TwoDimensionalFrameElement(start_node: structural_analysis.node.Node, end_node: structural_analysis.node.Node, section: structural_analysis.section.Section, material: structural_analysis.material.Material, beta_angle=0)
+
+   Bases: :py:obj:`structural_analysis.FrameElements.element.Element`
+
+   A class to represent a frame element in 2-d space.
+   Derived from Element Base class.
+   The element has six degrees of freedom, two translational
+   and one rotational degrees of freedom per each node.
+
+   Methods
+   -------
+   local_stiffness_matrix(self) -> np.array:
+       Represents a 2x2 local stiffness matrix in the local element coordinates.
+
+   element_stiffness_transformation_matrix(self) -> np.ndarray:
+       Represents a 6x6 transformation matrix of local stiffness matrix in
+       local element coordinates to structure coordinate system.
+
+   degrees_of_freedom(self) -> list[_DegreeOfFreedom]:
+       Returns list of the six degrees of freedom.
+
+   shape_function_matrix(self, x) -> np.ndarray:
+       Returns 3x1 array of local displacements of point,
+       at position x, in the local coordinate system.
+
+   .. py:method:: local_stiffness_matrix(self)
+
+      Represents the local stiffness matrix in the local element coordinates.
+
+
+   .. py:method:: element_stiffness_transformation_matrix(self)
+
+      Represents the transformation matrix of local stiffness matrix in
+      local element coordinates to structure coordinate system.
+
+
+   .. py:method:: shape_function_matrix(self, x)
+
+      Returns 3x1 array of local displacements of point,
+      at position x, in the local coordinate system.
+
+
+   .. py:method:: degrees_of_freedom(self)
+      :property:
+
+      Returns list of degrees of freedom of start node and end node.
+
+
+   .. py:method:: elastic_geometric_matrix(self)
+      :property:
+
+      for future use of geometric stiffness matrix
+
+
+
+.. py:class:: TrussElement(start_node: structural_analysis.node.Node, end_node: structural_analysis.node.Node, section: structural_analysis.section.Section, material: structural_analysis.material.Material, beta_angle=0)
+
+   Bases: :py:obj:`structural_analysis.FrameElements.element.Element`
+
+   A class to represent a truss element.
+   Derived from Element Base class.
+   The element has six translational degrees of freedom, three per each node.
+
+   Methods
+   -------
+   local_stiffness_matrix(self) -> np.array:
+       Represents a 2x2 local stiffness matrix in the local element coordinates.
+
+   element_stiffness_transformation_matrix(self) -> np.ndarray:
+       Represents a 2x6 transformation matrix of local stiffness matrix in
+       local element coordinates to structure coordinate system.
+
+   degrees_of_freedom(self) -> list[_DegreeOfFreedom]:
+       Returns list of the six degrees of freedom.
+
+   shape_function_matrix(self, x) -> np.ndarray:
+       Returns 3x1 array of local displacements of point,
+       at position x, in the local coordinate system.
+
+   .. py:method:: local_stiffness_matrix(self)
+
+      Represents the local stiffness matrix in the local element coordinates.
+
+
+   .. py:method:: element_stiffness_transformation_matrix(self)
+
+      Represents the transformation matrix of local stiffness matrix in
+      local element coordinates to structure coordinate system.
+
+
+   .. py:method:: shape_function_matrix(self, x)
+
+      Returns 3x1 array of local displacements of point,
+      at position x, in the local coordinate system.
+
+
+   .. py:method:: degrees_of_freedom(self)
+      :property:
+
+      Returns list of degrees of freedom of start node and end node.
+
+
+   .. py:method:: elastic_geometric_matrix(self)
+      :property:
+
+      for future use of geometric stiffness matrix
+
+
+
+.. py:class:: FrameElement(start_node: structural_analysis.node.Node, end_node: structural_analysis.node.Node, section: structural_analysis.section.Section, material: structural_analysis.material.Material, beta_angle=0)
+
+   Bases: :py:obj:`structural_analysis.FrameElements.element.Element`
+
+   A class to represent a frame element.
+   Derived from Element Base class.
+   The element has twelve degrees of freedom, three translational
+   and three rotational degrees of freedom per each node.
+
+   Methods
+   -------
+   local_stiffness_matrix(self) -> np.array:
+       Represents a 12x12 local stiffness matrix in the local element coordinates.
+
+   element_stiffness_transformation_matrix(self) -> np.ndarray:
+       Represents a 12x12 transformation matrix of local stiffness matrix in
+       local element coordinates to structure coordinate system.
+
+   degrees_of_freedom(self) -> list[_DegreeOfFreedom]:
+       Returns list of the twelve degrees of freedom.
+
+   shape_function_matrix(self, x) -> np.ndarray:
+       Returns 3x1 array of local displacements of point,
+       at position x, in the local coordinate system.
+
+   .. py:method:: local_stiffness_matrix(self)
+
+      Represents the local stiffness matrix in the local element coordinates.
+
+
+   .. py:method:: element_stiffness_transformation_matrix(self)
+
+      Represents the transformation matrix of local stiffness matrix in
+      local element coordinates to structure coordinate system.
+
+
+   .. py:method:: shape_function_matrix(self, x)
+
+      Returns 3x1 array of local displacements of point,
+      at position x, in the local coordinate system.
+
+
+   .. py:method:: degrees_of_freedom(self) -> list[structural_analysis._degree_of_freedom._DegreeOfFreedom]
+      :property:
+
+      Returns list of degrees of freedom of start node and end node.
+
+
+   .. py:method:: elastic_geometric_matrix(self)
+      :property:
+
+      for future use of geometric stiffness matrix
+
+
+

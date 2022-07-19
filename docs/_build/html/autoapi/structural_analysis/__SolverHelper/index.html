@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>structural_analysis.__SolverHelper &mdash; structural_analysis 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="structural_analysis.__main__" href="../__main__/index.html" />
+    <link rel="prev" title="structural_analysis.Visualizer" href="../Visualizer/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> structural_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Solver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Solver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualization/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualization</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Visualizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.Visualizer</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__SolverHelper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_degree_of_freedom/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis._degree_of_freedom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../coordinate_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.coordinate_system</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.material</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../node/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.node</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../section/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.section</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.structure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.vector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">structural_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__SolverHelper</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/structural_analysis/__SolverHelper/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-structural_analysis.__SolverHelper">
+<span id="structural-analysis-solverhelper"></span><h1><a class="reference internal" href="#module-structural_analysis.__SolverHelper" title="structural_analysis.__SolverHelper"><code class="xref py py-mod docutils literal notranslate"><span class="pre">structural_analysis.__SolverHelper</span></code></a><a class="headerlink" href="#module-structural_analysis.__SolverHelper" title="Permalink to this headline"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#structural_analysis.__SolverHelper.Solver" title="structural_analysis.__SolverHelper.Solver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Solver</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="structural_analysis.__SolverHelper.Solver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">structural_analysis.__SolverHelper.</span></span><span class="sig-name descname"><span class="pre">Solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../structure/index.html#structural_analysis.structure.Structure" title="structural_analysis.structure.Structure"><span class="pre">structural_analysis.structure.Structure</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.__SolverHelper.Solver" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.__SolverHelper.Solver._assemble_global_stiffness_elastic_matrix">
+<span class="sig-name descname"><span class="pre">_assemble_global_stiffness_elastic_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.__SolverHelper.Solver._assemble_global_stiffness_elastic_matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.__SolverHelper.Solver._assemble_restrained_displacement_vector">
+<span class="sig-name descname"><span class="pre">_assemble_restrained_displacement_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.__SolverHelper.Solver._assemble_restrained_displacement_vector" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.__SolverHelper.Solver._assemble_force_vector">
+<span class="sig-name descname"><span class="pre">_assemble_force_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.__SolverHelper.Solver._assemble_force_vector" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.__SolverHelper.Solver._solve_for_unknown_displacements">
+<span class="sig-name descname"><span class="pre">_solve_for_unknown_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restrained_displacments_vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.__SolverHelper.Solver._solve_for_unknown_displacements" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.__SolverHelper.Solver._solve_for_unknown_reactions">
+<span class="sig-name descname"><span class="pre">_solve_for_unknown_reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sf_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ss_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solved_displacements_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restrained_displacements_vector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.__SolverHelper.Solver._solve_for_unknown_reactions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="structural_analysis.__SolverHelper.Solver.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_analysis.__SolverHelper.Solver.run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Visualizer/index.html" class="btn btn-neutral float-left" title="structural_analysis.Visualizer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../__main__/index.html" class="btn btn-neutral float-right" title="structural_analysis.__main__" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Hazem Kassab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

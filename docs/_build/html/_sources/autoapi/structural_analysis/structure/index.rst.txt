@@ -1,0 +1,86 @@
+:py:mod:`structural_analysis.structure`
+=======================================
+
+.. py:module:: structural_analysis.structure
+
+.. autoapi-nested-parse::
+
+   Classes:
+       Structure
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.structure.Structure
+
+
+
+
+.. py:class:: Structure(elements: list[structural_analysis.FrameElements.element.Element])
+
+   A class to represent a structure of elements.
+   ...
+
+   Attributes
+   ----------
+   elements : list[Element]
+       list of element instances in the structure
+
+   nodes : list[Node]
+       list of node instances in the structure
+
+   degrees_of_freedom : list[_DegreeOfFreedom]
+       list of structure degrees of freedom
+
+   free_degrees_of_freedom : list[_DegreeOfFreedom]
+       list of all unrestrained degrees of freedom instances in the structure
+
+   restrained_degrees_of_freedom : list[_DegreeOfFreedom]
+       list of all restrained degrees of freedom instances in the structure
+
+   coordinate_system : CoordinateSystem
+       global coordinate system in which the structure is defined.
+
+
+   Methods
+   -------
+   _get_nodes_and_dofs(self) -> tuple[[Node], [_DegreeOfFreedom]]
+       returns a tuple of all nodes and degrees of freedom in structure.
+
+   _get_free_and_restrained_dofs(self):
+       returns a tuple of all free and restrained degrees of freedom in structure.
+
+   _assign_structure_to_nodes(self):
+       assigns structure instance to node structure attribute
+
+   _assign_structure_to_elements(self):
+       assigns structure instance to element structure attribute
+
+   .. py:method:: _get_nodes_and_dofs(self) -> tuple[[structural_analysis.node.Node], [structural_analysis._degree_of_freedom._DegreeOfFreedom]]
+
+      returns a tuple of all nodes and degrees of freedom in structure.
+
+
+   .. py:method:: _get_free_and_restrained_dofs(self)
+
+      returns a tuple of all free and restrained degrees of freedom in structure.
+
+
+   .. py:method:: _assign_structure_to_nodes(self)
+
+      assigns structure instance to node structure attribute
+
+
+   .. py:method:: _assign_structure_to_elements(self)
+
+      assigns structure instance to element structure attribute
+
+
+

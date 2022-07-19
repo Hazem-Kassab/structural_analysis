@@ -1,0 +1,333 @@
+:py:mod:`structural_analysis`
+=============================
+
+.. py:module:: structural_analysis
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   FrameElements/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Solver/index.rst
+   Visualization/index.rst
+   Visualizer/index.rst
+   __SolverHelper/index.rst
+   __main__/index.rst
+   _degree_of_freedom/index.rst
+   coordinate_system/index.rst
+   material/index.rst
+   node/index.rst
+   section/index.rst
+   structure/index.rst
+   vector/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.Structure
+   structural_analysis.Node
+   structural_analysis.CoordinateSystem
+   structural_analysis.Vector
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   structural_analysis.Global_Coordinate_System
+
+
+.. py:class:: Structure(elements: list[structural_analysis.FrameElements.element.Element])
+
+   A class to represent a structure of elements.
+   ...
+
+   Attributes
+   ----------
+   elements : list[Element]
+       list of element instances in the structure
+
+   nodes : list[Node]
+       list of node instances in the structure
+
+   degrees_of_freedom : list[_DegreeOfFreedom]
+       list of structure degrees of freedom
+
+   free_degrees_of_freedom : list[_DegreeOfFreedom]
+       list of all unrestrained degrees of freedom instances in the structure
+
+   restrained_degrees_of_freedom : list[_DegreeOfFreedom]
+       list of all restrained degrees of freedom instances in the structure
+
+   coordinate_system : CoordinateSystem
+       global coordinate system in which the structure is defined.
+
+
+   Methods
+   -------
+   _get_nodes_and_dofs(self) -> tuple[[Node], [_DegreeOfFreedom]]
+       returns a tuple of all nodes and degrees of freedom in structure.
+
+   _get_free_and_restrained_dofs(self):
+       returns a tuple of all free and restrained degrees of freedom in structure.
+
+   _assign_structure_to_nodes(self):
+       assigns structure instance to node structure attribute
+
+   _assign_structure_to_elements(self):
+       assigns structure instance to element structure attribute
+
+   .. py:method:: _get_nodes_and_dofs(self) -> tuple[[structural_analysis.node.Node], [structural_analysis._degree_of_freedom._DegreeOfFreedom]]
+
+      returns a tuple of all nodes and degrees of freedom in structure.
+
+
+   .. py:method:: _get_free_and_restrained_dofs(self)
+
+      returns a tuple of all free and restrained degrees of freedom in structure.
+
+
+   .. py:method:: _assign_structure_to_nodes(self)
+
+      assigns structure instance to node structure attribute
+
+
+   .. py:method:: _assign_structure_to_elements(self)
+
+      assigns structure instance to element structure attribute
+
+
+
+.. py:class:: Node(x, y, z)
+
+   A class to represent a node.
+   ...
+
+   Attributes
+   ----------
+   x : float
+       x coordinate of the node in the structure coordinate system
+
+   y : float
+       y coordinate of the node in the structure coordinate system
+
+   z : float
+       z coordinate of the node in the structure coordinate system
+
+   _structure : Structure
+       structure instance containing the node
+
+   position_vector : Vector
+       position vector instance holding x, y, and z coordinates of the node instance
+
+   dof_x : _DegreeOfFreedom
+       translational degree of freedom instance in
+       the x-axis direction of the structure coordinate system
+
+   dof_y : _DegreeOfFreedom
+       translational degree of freedom instance in
+       the y-axis direction of the structure coordinate system
+
+   dof_z : _DegreeOfFreedom
+       translational degree of freedom instance in
+       the z-axis direction of the structure coordinate system
+
+   dof_rx : _DegreeOfFreedom
+       rotational degree of freedom instance around
+       the x-axis of the structure coordinate system
+
+   dof_ry : _DegreeOfFreedom
+       rotational degree of freedom instance around
+       the y-axis of the structure coordinate system
+
+   dof_rz : _DegreeOfFreedom
+       rotational degree of freedom instance around
+       the z-axis of the structure coordinate system
+
+   .. py:attribute:: __node_id
+      :annotation: = 1
+
+      
+
+   .. py:method:: degrees_of_freedom(self) -> list[structural_analysis._degree_of_freedom._DegreeOfFreedom]
+      :property:
+
+      returns a list holding the six degrees of freedom instances of the node
+
+
+   .. py:method:: structure(self) -> structural_analysis.Structure
+      :property:
+
+      structure containing the node instance
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+
+.. py:class:: CoordinateSystem(i_vector: structural_analysis.vector.Vector, twist_angle: float, origin_vector: structural_analysis.vector.Vector)
+
+   A class to represent a cartesian coordinate system.
+   ...
+
+   Attributes
+   ----------
+   _i : structural_analysis.Vector
+       the i component of the coordinate system basis
+
+   _j : structural_analysis.Vector
+       the j component of the coordinate system basis
+
+   _k : structural_analysis.Vector
+       the k component of the coordinate system basis
+
+   basis : numpy.ndarray
+       a 3x3 numpy array holding the basis vectors [i, j, k]
+
+   origin : structural_analysis.Vector
+       the position vector of the origin of the coordinate system
+
+   _global_i_vector:
+       the i base vector described in a global coordinate system
+
+   _global_twist_angle:
+       the rotation angle of the coordinate_system around the i base vector
+
+   Methods
+   -------
+   _get_rotation_matrix_around_vector(angle: float, rotation_axis: Vector) -> np.ndarray:
+       static method, returns a 3x3 rotation matrix around the passed rotation axis vector with angle
+
+   get_coord_transformation_matrix(self, coordinate_system: CoordinateSystem) -> np.ndarray:
+       returns a 3x3 transformation matrix from the calling
+       coordinate system to passed coordinate system instance
+
+   .. py:method:: _get_rotation_matrix_around_vector(rotation_axis: structural_analysis.vector.Vector, angle: float) -> numpy.ndarray
+      :staticmethod:
+
+      returns a 3x3 rotation matrix around the passed rotation axis vector
+      Keyword arguments:
+          rotation_axis -- vector which the rotation is around.
+          angle -- amount of rotation in degrees.
+
+
+   .. py:method:: get_coord_transformation_matrix(self, coordinate_system: CoordinateSystem) -> numpy.ndarray
+
+      returns a 3x3 transformation matrix from the calling
+      coordinate system to passed coordinate system instance
+          Keyword arguments:
+              coordinate_system -- coordinate system which objects will transform to.
+
+
+
+.. py:class:: Vector(array: list[float])
+
+   Bases: :py:obj:`numpy.ndarray`
+
+   A class to represent a vector.
+   ...
+
+   Attributes
+   ----------
+   array : list[float]
+       list of size 3 holding i, j, k values of the vector instance
+
+   _coordinate_system : CoordinateSystem
+       coordinate system used to describe vector components (i, j, k)
+
+   Methods
+   -------
+   transform_vector(coordinate_system: CoordinateSystem):
+       returns a new transformed vector instance in the new coordinate system
+
+   magnitude:
+       returns the magnitude of the vector
+
+   normalized:
+       returns a new normalized vector instance
+
+   project_vector_on_vector(vector: Vector):
+       returns a new vector instance projected on the passed vector instance
+
+   project_vector_on_vector_scaler(vector: Vector):
+       returns a signed magnitude of vector projected on the passed vector instance
+
+   project_vector_on_plane(vector: Vector):
+       returns a new vector instance projected on a plane having the passed normal vector instance
+
+   .. py:method:: transform_vector(self, coordinate_system: structural_analysis.coordinate_system.CoordinateSystem) -> Vector
+
+      returns a new transformed vector instance in the new coordinate system.
+
+      Keyword arguments:
+      coordinate_system -- the coordinate system which the vector transforms to.
+
+
+   .. py:method:: magnitude(self) -> float
+      :property:
+
+      returns the magnitude of the vector.
+
+
+   .. py:method:: normalized(self) -> Vector
+      :property:
+
+      returns a new normalized vector instance.
+
+
+   .. py:method:: project_vector_on_vector(self, vector: Vector) -> Vector
+
+      returns a new vector instance projected on the passed vector instance
+      Keyword arguments:
+          vector -- a vector instance to project on.
+
+
+   .. py:method:: project_vector_on_vector_scaler(self, vector_2: Vector)
+
+      returns a signed magnitude of vector projected on the passed vector instance
+      Keyword arguments:
+          vector -- a vector instance to project on.
+
+
+   .. py:method:: project_vector_on_plane(self, plane_normal: Vector) -> Vector
+
+      returns a new vector instance projected on
+      a plane having the passed normal vector instance
+          Keyword arguments:
+              plane_normal -- a vector normal to plane.
+
+
+   .. py:method:: coordinate_system(self) -> structural_analysis.coordinate_system.CoordinateSystem
+      :property:
+
+      coordinate system used to describe vector components (i, j, k)
+
+
+
+.. py:data:: Global_Coordinate_System
+   
+
+   
+
