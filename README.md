@@ -131,7 +131,7 @@ Visualization.execute_qt()
 
 ```
 ## Output
-Upon running the above code, two text files ("Input.exe" and "Results.exe") are generated in the working directory.
+Upon running the above code, two text files ("Input.txt" and "Results.txt") are generated in the working directory.
 The "Results.txt" contains the displacements and reactions solved for. The following window pops up showing the undeformed structure 
 (white) and the deformed shape (red).
 The axis colors are as follows:
