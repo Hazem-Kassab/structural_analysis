@@ -141,7 +141,7 @@ The axis colors are as follows:
  
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Two_Story_Frame.JPG?raw=true)
 
-## Gallary
+## Gallery
 Python files for below pictures can be found in the "Examples" folder.
 * Examples/ Hinged_Fixed_2D_Frame.py
 ![alt text](https://github.com/Hazem-Kassab/StructuralAnalysis/blob/master/Examples/Hinged_Fixed_2D_Frame.JPG?raw=true)
