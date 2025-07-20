@@ -1,5 +1,5 @@
 # StructuralAnalysis
- Library to perfrom framed structures analysis
+ Library for 3d framed structural analysis
 
 ## Installation
 
